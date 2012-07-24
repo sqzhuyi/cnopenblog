@@ -1,5 +1,0 @@
-E:\project\cnopenblog\SearchEngine.Analysis\bin\Debug\SearchEngine.Analysis.dll
-E:\project\cnopenblog\SearchEngine.Analysis\bin\Debug\SearchEngine.Analysis.pdb
-E:\project\cnopenblog\SearchEngine.Analysis\obj\Debug\ResolveAssemblyReference.cache
-E:\project\cnopenblog\SearchEngine.Analysis\obj\Debug\SearchEngine.Analysis.dll
-E:\project\cnopenblog\SearchEngine.Analysis\obj\Debug\SearchEngine.Analysis.pdb
