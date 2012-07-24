@@ -10,3 +10,5 @@ cnOpenBlog 是一款开源的博客项目
 2、文章生成静态页<br>
 3、可自定义博客皮肤<br>
 4、全文搜索使用LUCENE.net
+
+/Preview 目录下有网站抓图
