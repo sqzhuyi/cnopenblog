@@ -1,0 +1,94 @@
+﻿* { font-family:Arial, Verdana, 宋体;}
+body { margin:0px; padding:0px 20px; font-family:Verdana, Arial, 宋体; font-size:12px; color:#333333; background:url(/images/bg/master2_bg.gif) repeat-x 0px 0px #99D0F5; }
+a { color:#487DA5; text-decoration:none;}
+a:hover { color:#F3A217; }
+p { margin:0px; padding:4px 0px; line-height:150%; word-wrap:break-word;}
+input,textarea { font-size:13px; *padding-top:3px;}
+h1 { font-size:24px; margin-top:10px; }
+ul { list-style:none; list-style-image: url(/images/dot.gif); margin:10px 0px; padding:0px; padding-left:20px; line-height:170%; }
+ul,x:-moz-any-link, x:default { list-style-image: url(/images/dot_ff.gif); }
+ol { margin:10px 14px; padding:0px; padding-left:14px; line-height:170%; }
+
+.clear { clear:both; padding:0px; margin:0px;}
+
+.radius { -moz-border-radius: 4px;-webkit-border-radius:4px; }
+
+.header { width:938px; margin:0px auto; padding:10px; padding-bottom:4px; }
+.header .topright { float:right; margin-top:26px; }
+.header .topright a { float:right; display:block; margin-left:10px; background:url(/images/blogger/tabs_left_bg.gif) no-repeat 0px 0px; }
+.header .topright b { float:right; display:block; margin-left:3px; padding:6px 10px; background:url(/images/blogger/tabs_right_bg.gif) no-repeat right 0px; color:#257DB9; font-size:14px;}
+*:first-child+html .header .topright b { float:none; display:inherit; }
+*html .header .topright b { float:none; display:inherit; }
+.header .topright a.reg { background-image:url(/images/blogger/blue_button.gif); padding:7px 35px; color:#ffffff; font-weight:bold; }
+
+.log22 { float:right; margin-left:10px; }
+.log22 td { height:28px; overflow:hidden; background-color:#60ACE0;}
+.log22 .log22left { background:url(/images/blogger/tabs_left_bg2.gif) no-repeat left top transparent; width:3px;}
+.log22 .log22right { background:url(/images/blogger/tabs_right_bg2.gif) no-repeat right top transparent; width:10px;}
+.log22 .dot { background:url(/images/dot_white.gif) no-repeat 5px 12px #60ACE0; padding:0px 7px;}
+.header .topright .log22 a { background:none; float:inherit; margin-left:0px; color:#ffffff; font-weight:bold; }
+#login_a { margin-left:7px; *margin-left:4px;}
+
+.bodytop { width:960px; margin:0px auto; padding-top:0px; height:108px; background:url(/images/blogger/header.gif) no-repeat 0px 0px;}
+.bodymiddle { width:916px; margin:0px auto; padding:20px; border-left:solid 2px #B1C3D4; border-right:solid 2px #B1C3D4; background-color:#ffffff; }
+.bodybottom { width:960px; margin:0px auto; padding-top:8px; background:url(/images/footer_bg.gif) no-repeat 0px 0px; }
+
+.footer { width:960px; margin:0px auto; padding:10px 0px;}
+
+.put { padding:4px; border:solid 1px #999; background-color:#ffffff; -moz-border-radius: 3px;-webkit-border-radius:3px;}
+.put:focus { background-color:#f5f5f5;}
+.erput { border-color:#ff6633; }
+
+a.hui { color:#999999;}
+a.hui:hover { text-decoration:underline; }
+
+a.rssa { background:url(/images/xml.gif) no-repeat 0px 2px; padding-left:39px; padding-top:2px;}
+
+#txtQuickSearch { width:140px; border:solid 1px #999999; color:#555555; padding:3px 3px 3px 19px; *padding:4px 3px 2px 19px; background:url(/images/zoom.gif) no-repeat 3px 4px #ffffff; -moz-border-radius: 3px;-webkit-border-radius:3px; }
+.imgGo { margin-bottom:-6px; *margin-bottom:-4px; cursor:pointer; }
+a.showmsg { position:absolute; z-index:101px; top:28px; *top:32px; padding-right:3px; background:url(/images/blogger/impop.gif) no-repeat right top; }
+a.showmsg i { font-style:normal; font-size:11px; color:#ffffff; padding:0px 2px 4px 5px; cursor:pointer; background:url(/images/blogger/impop.gif) no-repeat 0px 0px; }
+
+.pagetitle { font-size:26px; color:#ffffff; margin:0px; padding:20px 160px 10px 80px; }
+.pagesubtitle { margin:0px; padding:0px 160px; font-size:13px; color:#ffffff;}
+.left { float:left; width:640px; }
+.right { float:right; width:240px; background:url(/images/bg/vline_bg_left.gif) repeat-y left top #EEF8FC; padding-left:4px; padding-right:2px; }
+#author_img { width:120px; border:solid 4px #f9f9f9; -moz-border-radius: 5px;-webkit-border-radius:5px; }
+.ptit { font-weight:bold; padding-left:10px; }
+.ptitle a { font-size:16px; font-weight:bold; color:#333333; }
+.ptitle a:hover { color:#0066cc;}
+.ptime { font-size:11px; color:#999999; }
+.zhaiyao { text-indent:2em; padding-bottom:50px; }
+a.write { float:right; width:80px; background:url(/images/bg/btn_bg_r.gif) no-repeat; text-align:center; padding:6px 0px; color:#ffffff; }
+a.write:hover { color:#F3A217;}
+a.ebtn { background:url(/images/ebtn.gif) no-repeat 0px 0px; padding:2px 24px 2px 8px;*padding-bottom:0px; font-family:宋体; font-size:12px; }
+a.ebtn:hover { color:#ffffff; background-position:0px -16px;}
+*:first-child+html a.ebtn { padding-top:1px;}
+a.ebtn,x:-moz-any-link, x:default { padding-bottom:1px;}
+a.edit { background:url(/images/edit.gif) no-repeat 0px 0px; padding-left:18px; padding-top:1px; }
+a.addf { background:url(/images/addf.gif) no-repeat 0px 0px; padding-left:18px; padding-top:1px;}
+.comment_a { background:url(/images/comments.gif) no-repeat 0px 6px; padding-left:24px; font-size:13px; font-weight:bold;}
+.flistbox { float:left; width:70px; text-align:center; margin:10px 0px; }
+.flistbox img { border:solid 1px #ccc; padding:1px;}
+#group_box .gitem { float:left; width:110px; text-align:center; margin:10px 0px; }
+#group_box .gitem img { border:0px;}
+
+.bloglist { background-color:#ffffff;}
+.bloglist .title { padding:4px 10px; font-size:14px; background-color:#dddddd; -moz-border-radius: 3px; }
+*html .bloglist .title { border-bottom:solid 1px #eeeeee; border-top:solid 1px #d2cfcf;}
+.bloglist .title a { font-size:13px; color:#333; font-family:Verdana; font-weight:bold; }
+.bloglist .title a:hover { color:#cc3333;}
+.bloglist .zhaiyao { font-size:13px; text-indent:2em; padding:10px; padding-bottom:0px; font-family:Verdana;}
+.bloglist .bot { text-align:right; padding-right:10px; margin-bottom:10px; border-bottom:dashed 1px #cccccc;}
+
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.pagelist b { text-decoration:underline; }
+
+.topbox { font-size:20px; font-family:华文新魏; border:solid 1px #cccccc; padding:20px; margin-top:4px; margin-bottom:20px; background:url(/images/bg/newstate.gif) no-repeat right bottom; }
+.topbox .sm { font-size:12px; color:#666666; padding-left:20px; }
+.topbox .sm a { font-size:12px; }
+
+.rbox { padding:6px; background-color:#F7FBFD;}
+#authorinfo_box { padding:10px 6px;}

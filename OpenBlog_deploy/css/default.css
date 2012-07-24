@@ -1,0 +1,27 @@
+﻿.left { float:left; width:600px; }
+.right { float:right; width:290px; }
+.catbox { border:solid 6px #acd5f8; background-color:#ffffff; padding:10px; -moz-border-radius: 8px;-webkit-border-radius:8px; }
+.catbox a { float:left; display:block; padding:6px 0px; width:60px; *width:58px; text-align:center; margin-right:10px; font-size:14px; }
+.catbox a:hover { background-color:#f0f0f0; font-weight:bold; }
+.bhead { margin:10px 0px; padding:6px 14px; border-top:solid 2px #cccccc; border-bottom:solid 1px #cccccc; }
+.bhead b { display:block; float:left; width:270px; color:#555555; }
+.bhead b span { color:#ff0000; }
+.nitem { background:url(/images/file.gif) no-repeat 0px 6px; padding-left:18px; }
+.chkRe { background:url(/images/icon_check.gif) no-repeat; padding:0px 0px 4px 22px; }
+.nochk { background-image:url(/images/icon_check_off.gif);}
+.gitem { float:left; width:94px; text-align:center; margin-bottom:10px; }
+.newblogbox { float:left;width:270px; padding-left:14px;}
+.hotblogbox { float:right;width:296px;}
+.hotgroupbox { padding:0px 14px; margin:16px 0px; border:solid 1px #cccccc;background-color:#ffffff;}
+.hotgroupbox img { border:solid 1px #cccccc; padding:1px; }
+.hotgrouphead { margin:10px; margin-bottom:20px; font-weight:bold; color:#555555;}
+.loginhead { border-top:solid 2px #acd5f8; background-color:#D3E7F8; padding:6px 16px; font-weight:bold;}
+.loginbody { background-color:#E4F2FD; padding:16px 26px;}
+.loginphoto { width:80px; border:solid 1px #ccc; padding:1px; }
+.loginline { margin-top:16px;padding-top:12px; line-height:200%; border-top:solid 1px #ffffff; }
+a.publish { background:url(/images/layout_add.gif) no-repeat; padding-left:18px; padding-bottom:2px; }
+.ersp { background:url(/images/delete.gif) no-repeat 4px 10px; padding-left:20px; padding-top:14px; }
+
+.tag_box { padding:0px 12px; line-height:26px;}
+.tag_box a { padding:1px 4px; }
+.tag_box a:hover { background-color:#487DA5; color:#ffffff; }

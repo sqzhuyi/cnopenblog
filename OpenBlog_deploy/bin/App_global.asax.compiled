@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="8" virtualPath="/OpenBlog/global.asax" hash="7bc2c8f0" filehash="20075022343a" flags="150000" assembly="App_global.asax" type="ASP.global_asax">
+    <filedeps>
+        <filedep name="/OpenBlog/global.asax" />
+    </filedeps>
+</preserve>

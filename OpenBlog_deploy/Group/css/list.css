@@ -1,0 +1,12 @@
+﻿.topbar { border-bottom:solid 1px #ccc; margin-right:10px; margin-bottom:10px;}
+.gitem { padding:6px; margin-right:14px; -moz-border-radius: 4px;-webkit-border-radius:4px; }
+.gitem2 { background-color:#f0f0f0; }
+.gitem1 { background-color:#f8f8f8; }
+.gitem .itemcol1 { float:left; display:block; width:70px; }
+.gitem .itemcol2 { float:left; display:block; width:460px; }
+.gitem .itemcol3 { float:left; display:block; width:100px; text-align:right; }
+.gitem .itemcol1 img { width: 60px; border:none; }
+
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }

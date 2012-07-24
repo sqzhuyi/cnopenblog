@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/OpenBlog/App_Browsers/" hash="7bc2c8f0" filehash="420db7769cd" flags="110000" assembly="App_Browsers" type="ASP.ApplicationBrowserCapabilitiesFactory">
+    <filedeps>
+        <filedep name="/OpenBlog/App_Browsers/Form.browser" />
+    </filedeps>
+</preserve>

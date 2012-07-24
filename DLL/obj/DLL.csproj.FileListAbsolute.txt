@@ -1,0 +1,27 @@
+D:\Documents and Settings\zhuyi\My Documents\Visual Studio 2005\Projects\OpenBlog\DLL\bin\Debug\DLL.dll
+D:\Documents and Settings\zhuyi\My Documents\Visual Studio 2005\Projects\OpenBlog\DLL\bin\Debug\DLL.pdb
+D:\Documents and Settings\zhuyi\My Documents\Visual Studio 2005\Projects\OpenBlog\DLL\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\zhuyi\My Documents\Visual Studio 2005\Projects\OpenBlog\DLL\obj\Debug\DLL.dll
+D:\Documents and Settings\zhuyi\My Documents\Visual Studio 2005\Projects\OpenBlog\DLL\obj\Debug\DLL.pdb
+F:\website\DLL\bin\Debug\DLL.dll
+F:\website\DLL\bin\Debug\DLL.pdb
+F:\website\DLL\obj\Debug\ResolveAssemblyReference.cache
+F:\website\DLL\obj\Debug\DLL.dll
+F:\website\DLL\obj\Debug\DLL.pdb
+F:\website\DLL\bin\Debug\SearchEngine.dll
+F:\website\DLL\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\website\DLL\bin\Debug\SearchEngine.Analysis.dll
+F:\website\DLL\bin\Debug\Lucene.Net.dll
+F:\website\DLL\bin\Debug\SearchEngine.pdb
+F:\website\DLL\bin\Debug\SearchEngine.Analysis.pdb
+F:\website\cnopenblog\DLL\bin\Debug\DLL.dll
+F:\website\cnopenblog\DLL\bin\Debug\DLL.pdb
+F:\website\cnopenblog\DLL\bin\Debug\SearchEngine.dll
+F:\website\cnopenblog\DLL\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\website\cnopenblog\DLL\bin\Debug\SearchEngine.Analysis.dll
+F:\website\cnopenblog\DLL\bin\Debug\Lucene.Net.dll
+F:\website\cnopenblog\DLL\bin\Debug\SearchEngine.pdb
+F:\website\cnopenblog\DLL\bin\Debug\SearchEngine.Analysis.pdb
+F:\website\cnopenblog\DLL\obj\Debug\ResolveAssemblyReference.cache
+F:\website\cnopenblog\DLL\obj\Debug\DLL.dll
+F:\website\cnopenblog\DLL\obj\Debug\DLL.pdb

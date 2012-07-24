@@ -1,0 +1,36 @@
+﻿.left { float:left; width:670px; }
+.right { float:right; width:240px; }
+.gitem .itemcol2 { width:490px; }
+.gitem .itemcol3 { width:70px; padding-left:10px; text-align:left; }
+.gitem .itemcol3 a { display:block; border-bottom:solid 1px #c9dded; padding:1px 4px; margin-bottom:2px; }
+.gitem .itemcol3 a:hover { color:#ffffff; background-color:#487DA5; }
+h1 { font-size:14px; font-weight:bold; color:#666666; margin:0px; margin-bottom:6px; padding:6px 0px; }
+.boxhead { background:url(/images/gbig.gif) no-repeat 0px 0px; padding:8px 0px 8px 40px; }
+.boxhead2 { background:url(/images/tbig.gif) no-repeat 0px 0px; padding:8px 0px 8px 40px; }
+.titem { padding:2px; margin-right:14px; -moz-border-radius: 4px;-webkit-border-radius:4px; }
+.titemtop { background-color:#cccccc; font-weight:bold; color:#555555; padding:6px; }
+.titem2 { background-color:#f5f5f5; }
+.titem .col1 { float:left; width:330px; background:url(/images/icon_wsx.gif) no-repeat 4px 8px; padding:6px 14px 0px 18px; }
+.titemtop .col1 { background:url(/images/icon_blogct.gif) no-repeat; padding-top:0px; padding-right:10px; }
+.titem .col2 { float:left; width:80px; padding-top:6px; }
+.titemtop .col2 { padding-top:0px;}
+.titem .col3 { float:left; width:100px; text-align:center; }
+.titem .col4 { float:left; width:100px; text-align:center; }
+.hotgitem { float:left; display:block; width:80px; text-align:center; }
+.hotgitem p { line-height:120%; padding-bottom:10px;}
+.hotgitem img { border:solid 1px #f5f5f5; }
+a.seeg { background:url(/images/group.gif) no-repeat; padding-left:18px;padding-top:2px;}
+
+.topbar { border-bottom:solid 1px #ccc; margin-right:10px; margin-bottom:10px;}
+.gitem { padding:6px; margin-right:14px; -moz-border-radius: 4px;-webkit-border-radius:4px; }
+.gitem2 { background-color:#f0f0f0; }
+.gitem1 { background-color:#f8f8f8; }
+.gitem .itemcol1 { float:left; display:block; width:70px; }
+.gitem .itemcol2 { float:left; display:block; width:460px; }
+.gitem .itemcol3 { float:left; display:block; width:100px; text-align:right; }
+.gitem .itemcol1 img { width: 60px; border:none; }
+
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.pagelist b { text-decoration:underline; }

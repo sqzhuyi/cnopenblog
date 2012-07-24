@@ -1,0 +1,37 @@
+﻿.bodymiddle { padding-top:10px; }
+img { border:none; }
+.item { border:solid 1px #CFD6E1; background-color:#E7EAEF; margin-bottom:10px; }
+.left { float:left; width:140px; padding:10px; }
+.right { float:right; width:740px; background-color:#ffffff; }
+.righttop { border-bottom:dashed 1px #CFD6E1; padding:6px; }
+.rightmiddle { padding:18px 0px 20px 14px; width:680px; overflow-x:auto; }
+.rightmiddle .qianming { padding-top:40px; color:#339999; }
+.rightmiddle .qianming .line { font-size:14px; font-family:宋体; color:#999999; }
+.rightbottom { border-top:dashed 1px #CFD6E1; text-align:right; padding:6px; }
+.rightbottom a { background-repeat:no-repeat; padding-left:20px; padding-bottom:2px; *padding-top:2px; }
+.spright { float:right; *margin-top:-18px; *padding-right:4px; }
+.spright,x:-moz-any-link, x:default { margin-top:-16px;}
+.spleft { float:left; }
+.photo { float:left; margin-right:10px; width:70px; padding:0px; border-color:#f5f5f5; }
+a.userlink { background:url(/images/user_offline.gif) no-repeat 0px 0px; padding-left:18px; font-size:13px; font-family:Arial; font-weight:bold; }
+a.quote { background-image:url(/images/bg/bbsquote.gif); }
+a.reply { background-image:url(/images/bg/bbsmove.gif); padding-left:22px; }
+.btna { float:left; display:block; width:115px; background:url(/images/r-btn.gif) no-repeat; padding:9px 0px; text-align:center; font-size:13px; font-weight:bold; color:#2d6f92; text-decoration:none;}
+.btna:hover { background-image:url(/images/r-btn-2.gif); color:#000000; text-decoration:none;}
+#sp_note { padding-left:10px; color:#ff0000; }
+
+#sp_admin { float:right; margin-right:4px; margin-top:-30px; }
+#sp_admin a { background-repeat:no-repeat; padding-left:20px; padding-bottom:2px; *padding-top:2px; }
+a.delete { background-image:url(/images/bbs/delete.gif);}
+a.edit { background-image:url(/images/bbs/edit.gif); }
+a.hide { background-image:url(/images/bbs/hide.gif); }
+a.top { background-image:url(/images/bbs/top.gif); }
+
+.hidetopic { width:300px; margin:20px auto; font-size:26px; font-weight:bold; color:#555555; background:url(/images/jinzhi.gif) no-repeat; padding:40px 0px 40px 120px;}
+.hidereply { width:200px; border:solid 1px #f14c4c; background:url(/images/pingbi.gif) no-repeat 10px 10px #fbf4b8; padding:10px 30px;}
+
+#hui_box_div { position:absolute; z-index:1001px; width:260px; left:260px; top:360px; float: left;}
+.hui_box{ background:url(/images/box/hui-bottom-left.gif) no-repeat 15px bottom;}
+.hui_box_outer{ background:url(/images/box/hui-bottom-right.gif) no-repeat right bottom;}
+.hui_box_inner{ background:url(/images/box/hui-top-left.gif) no-repeat left top; padding-left:5px;}
+.hui_box p { background:url(/images/box/hui-top-right.gif) no-repeat right top; padding:10px 20px 20px 26px;margin:0; line-height:20px;}

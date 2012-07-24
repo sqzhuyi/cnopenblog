@@ -1,0 +1,20 @@
+﻿
+.catebox { margin:10px; border:solid 1px #999;}
+.catebox p { background:url(/images/right.gif) no-repeat 12px 9px; line-height:100%; padding:6px 0px; padding-left:30px; border:solid 1px #ffffff; border-top:none; background-color:#eeeeee; }
+.catebox p.currp { background-image:url(/images/right2.gif); border-bottom:none; background-color:#487DA5;}
+.catebox p.currp a { color:#ffffff;}
+.subcatebox { border:solid 1px #ffffff; border-top:solid 1px #E1EAF0; background-color:#E1EAF0;}
+.subcatebox a { display:block; background:url(/images/dot.gif) no-repeat 24px 10px; padding:4px 0px; padding-left:36px; border-bottom:solid 1px #f0f0f0;}
+.subcatebox a.curr { color:#000000; }
+
+#bloglist { margin-right:20px; background-color:#ffffff;}
+#bloglist .title { padding:4px 10px; font-size:14px; background-color:#E5EEF7; border-top:solid 1px #999;}
+#bloglist .title a { font-size:13px; color:#333; font-family:Verdana; font-weight:bold; }
+#bloglist .title a:hover { color:#cc3333;}
+#bloglist .zhaiyao { font-size:13px; text-indent:2em; padding:10px; padding-bottom:0px; font-family:Verdana;}
+#bloglist .bot { text-align:right; padding-right:10px; margin-bottom:10px; border-bottom:dashed 1px #cccccc;}
+
+#pagelist { text-align:center; margin:20px 0px; }
+#pagelist a,#pagelist b { padding:1px 5px; }
+#pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.pagelist b { text-decoration:underline; }

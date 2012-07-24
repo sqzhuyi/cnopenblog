@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ASP.NET在线用户列表精确版——解决用户意外退出在线列表无法及时更新问题, 在线用户列表 - cnOpenBlog</title>
+<meta http-equiv="content-type" content="text/html; charset=uft-8" />
+<meta name="keywords" content="ASP.NET在线用户列表精确版——解决用户意外退出在线列表无法及时更新问题, 在线用户列表" />
+<link type="text/css" rel="Stylesheet" href="/css/blog.css" />
+<script type="text/javascript" src="/js/blog.js"></script>
+</head>
+<body>
+<div class="header"><a href="http://www.cnopenblog.com/"><img src="/images/logo.gif" border=0 /></a>
+<div id="toptabs" class="topright">
+<a class="reg" href="/register.aspx">快速注册</a><a href="/login.aspx" title="登录到cnOpenBlog"><b>登 录</b></a>
+<a href="/group/" title="博友群组"><b>群 组</b></a><a href="/12.ashx" title="查看最新的文章"><b>最新文章</b></a><a href="/" title="cnOpenBlog首页"><b>首 页</b></a>
+</div>
+</div>
+<div class="bodytop"><!--blog title start--><h1 class='pagetitle'>OpenBlog的博客</h1><h5 class='pagesubtitle'></h5><!--blog title end--></div>
+<div class="bodymiddle" style="padding:0px;width:956px;">
+<div id="leftdiv" class="left">
+<!--left start-->
+<div style="padding:10px 0px;">
+<!--dao hang start--><a href='http://www.cnopenblog.com/'>首页</a> &gt;&gt; <a href='/105.htm'>IT</a> &gt;&gt; <a href='/openblog/1.htm'>未分类</a><!--dao hang end-->
+</div>
+<div id="sameclassblog_div" style="display:none;"><a class="sameclass" href="#" onclick="javascript:showblogs(this);return false;">同类文章</a></div>
+<div id="blogs_div" style="display:none;"></div>
+<div id="prev_next_blog">上一篇：<a href='/blog/200905/10023.html'>在线用户统计 3</a> &nbsp;<span id="sp_br" style="display:none;"><br /></span> <span id="sp_next1"></span></div>
+<div style="margin:10px; margin-left:0px;">
+<h1><!--title start-->ASP.NET在线用户列表精确版——解决用户意外退出在线列表无法及时更新问题<!--title end--></h1>
+<div>
+<div style="float:left;"><span id="star_sp"></span></div>
+<div style="float:right; text-align:left; padding-right:10px;"><!--pubdate start-->2009-05-05 12:10<!--pubdate end--> 阅读（<span id="sp_read">1</span>） <a href="#comment">评论（<span id="sp_comment">0</span>）</a> <a class="ebtn" href="javascript:void(0);" onclick="javascript:addFavorite(this);return false;">收藏</a></div>
+</div>
+<div class="clear"></div><br />
+<!--body start--><p><span title="Amount paid to place this ad (or free if nothing paid)">
+<div id="conent" style="padding: 15px 0px; overflow: scroll; text-align: left; line-height: 150%; width: 680px; font-size: 14px;">
+<p>【原创作者】：丛兴滋（cncxz）[E-mail：<a href="mailto:cncxz@126.com">cncxz@126.com</a>]<br>【关 键 词】：xmlhttp&nbsp; ASP.NET在线用户列表&nbsp; 关闭浏览器&nbsp; 精确统计 单人登陆<br>【代码下载】：<a href="http://www.thisky.cn/down/onlineuser.rar">http://www.thisky.cn/down/onlineuser.rar</a></p>
+<p>&nbsp;&nbsp;&nbsp;
+最近所做的一个项目需要用到的在线用户列表，上网搜索了一下发现现有的解决方案对用户意外退出的处理均不是太理想。一般来说，用户离开系统的方式有三种：
+主动注销、会话超时、直接关闭浏览器，对于前两种，我们很容易便可将该用户从在线列表中清除，关键是第三种（很多用户都是直接关闭窗口的~~郁闷
+ing），程序无法捕获窗口关闭的精确时间，只能等到会话超时后在能将该用户清除出在线列表，假设我们设置会话超时时间为60分钟，而用户登陆系统随便浏
+览一个页面就以关闭浏览器的方式退出的话，我们要在将近1小时后才能从在线列表中将该用户清除出去（想象一下，系统显示n多人在线，可能除了你之外其他的
+n-1人都关机走人了，汗一个先```），而本文将尝试寻找一个解决方案把这种尴尬降至最低。<br>&nbsp;&nbsp;&nbsp;
+我的大概思路是，给每在线用户增加一个RefreshTime属性，建立一个负责将当前用户的RefreshTime属性设置为当前时间的单独页面
+（Refresh.aspx），然后在系统的主要页面（也可以是所有页面）中通过xmlhttp不断地请求Refresh.aspx页面，一旦用户关闭了
+与本系统相关的所有窗口，即以直接关闭浏览器的方式退出系统，那么该用户的RefreshTime属性便不会自动更新了，我们再设置一个自动刷新的超时时
+间（这个要比会话超时短很多_refreshTimeout），当发现某用户超过_refreshTimeout的时间没有自动刷新，就能判定该用户已经
+以直接关闭浏览器的方式退出了。<br>&nbsp;&nbsp;&nbsp;
+假设我们设置会话超时时间为60分钟，自动刷新超时时间为1分钟，在客户端通过xmlhttp每隔25秒（之所以不设1分钟，是防止网速慢的时候访问
+Refresh.aspx超时，个人感觉，不一定正确）访问一次Refresh.aspx页面，在用户登陆、用户注销、检测用户是否在线的时候都执行清理
+超时用户（包括会话超时和自动刷新超时）操作，这样一来，在线用户列表的统计误差就由60分钟降至1分钟了。</p>
+<p>==========================================</p>
+<p>&nbsp;</p>
+<p>具体实现如下：</p>
+<p><br>1、 新建一个名为ActiveUser的类，存储单个活动用户数据。 </p>
+<p>/// &lt;summary&gt;<br>&nbsp;/// 单个在线用户数据，无法继承此类。<br>&nbsp;/// &lt;/summary&gt; <br>&nbsp;public sealed class ActiveUser<br>&nbsp;{&nbsp; <br>&nbsp; private readonly string _ticket;&nbsp;&nbsp;&nbsp; //票据名称<br>&nbsp; private readonly string _username;&nbsp;&nbsp; //登陆用户名<br>&nbsp; private readonly string _truename;&nbsp;&nbsp; //登陆用户名<br>&nbsp; private readonly string _roleid;&nbsp;&nbsp;&nbsp; //角色<br>&nbsp; private readonly DateTime _refreshtime;&nbsp; //最新刷新时间<br>&nbsp; private readonly DateTime _activetime;&nbsp; //最新活动时间<br>&nbsp; private readonly string _clientip;&nbsp;&nbsp; //登陆IP<br>&nbsp; <br>&nbsp; public ActiveUser(string Ticket,string UserName,string TrueName,string RoleID,string ClientIP) {<br>&nbsp;&nbsp; this._ticket=Ticket;<br>&nbsp;&nbsp; this._username=UserName;<br>&nbsp;&nbsp; this._truename=TrueName;<br>&nbsp;&nbsp; this._roleid=RoleID;<br>&nbsp;&nbsp; this._refreshtime=DateTime.Now;<br>&nbsp;&nbsp; this._activetime=DateTime.Now;<br>&nbsp;&nbsp; this._clientip=ClientIP;<br>&nbsp; }</p>
+<p>&nbsp; public ActiveUser(string Ticket,string UserName,string
+TrueName,string RoleID,DateTime RefreshTime,DateTime ActiveTime,string
+ClientIP)&nbsp; {<br>&nbsp;&nbsp; this._ticket=Ticket;<br>&nbsp;&nbsp; this._username=UserName;<br>&nbsp;&nbsp; this._truename=TrueName;<br>&nbsp;&nbsp; this._roleid=RoleID;<br>&nbsp;&nbsp; this._refreshtime=RefreshTime;<br>&nbsp;&nbsp; this._activetime=ActiveTime;<br>&nbsp;&nbsp; this._clientip=ClientIP;<br>&nbsp; }<br>&nbsp; <br>&nbsp; public string Ticket&nbsp; { get{return _ticket;}&nbsp; }<br>&nbsp; public string UserName&nbsp; { get{return _username;}&nbsp; }<br>&nbsp; public string TrueName&nbsp; { get{return _truename;}&nbsp; }<br>&nbsp; public string RoleID&nbsp; { get{return _roleid;}&nbsp; }<br>&nbsp; public DateTime RefreshTime { get{return _refreshtime;} }<br>&nbsp; public DateTime ActiveTime { get{return _activetime;} }<br>&nbsp; public string ClientIP&nbsp; { get{return _clientip;}&nbsp; }</p>
+<p>&nbsp;}</p>
+<p>&nbsp;</p>
+<p><br>2、 新建一个名为PassPort的类，存储在线用户列表。</p>
+<p>/// &lt;summary&gt;<br>&nbsp;/// PassPort 存储在线用户列表。<br>&nbsp;/// &lt;/summary&gt;<br>&nbsp;public class PassPort<br>&nbsp;{<br>&nbsp; private&nbsp; static&nbsp; DataTable&nbsp; _activeusers;<br>&nbsp; private&nbsp; int&nbsp; _activeTimeout;<br>&nbsp; private&nbsp; int&nbsp; _refreshTimeout;</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; /// 初始化在线用户表。<br>&nbsp; /// &lt;/summary&gt; <br>&nbsp; private void userstableFormat()<br>&nbsp; {<br>&nbsp;&nbsp; if(_activeusers==null) {<br>&nbsp;&nbsp;&nbsp; _activeusers&nbsp; =&nbsp; new&nbsp; DataTable("ActiveUsers");<br>&nbsp;&nbsp;&nbsp; DataColumn&nbsp; myDataColumn;<br>&nbsp;&nbsp;&nbsp; System.Type mystringtype;<br>&nbsp;&nbsp;&nbsp; mystringtype = System.Type.GetType("System.String");<br>&nbsp;&nbsp;&nbsp; System.Type mytimetype;<br>&nbsp;&nbsp;&nbsp; mytimetype = System.Type.GetType("System.DateTime");<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("Ticket",mystringtype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("UserName",mystringtype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("TrueName",mystringtype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("RoleID",mystringtype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("RefreshTime",mytimetype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("ActiveTime",mytimetype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);<br>&nbsp;&nbsp;&nbsp; myDataColumn&nbsp; =&nbsp; new&nbsp; DataColumn("ClientIP",mystringtype);<br>&nbsp;&nbsp;&nbsp; _activeusers.Columns.Add(myDataColumn);&nbsp;&nbsp; <br>&nbsp;&nbsp; }<br>&nbsp; }</p>
+<p>&nbsp; public PassPort()<br>&nbsp; {<br>&nbsp;&nbsp; userstableFormat(); //初始化在线用户表<br>&nbsp;&nbsp; //活动超时时间初始化 单位：分钟<br>&nbsp;&nbsp; try { _activeTimeout=int.Parse(ConfigurationSettings.AppSettings["ActiveTimeout"]); }<br>&nbsp;&nbsp; catch{ _activeTimeout=60; }&nbsp;&nbsp; <br>&nbsp;&nbsp; //自动刷新超时时间初始化 单位：分钟<br>&nbsp;&nbsp; try { _refreshTimeout=int.Parse(ConfigurationSettings.AppSettings["RefreshTimeout"]); }<br>&nbsp;&nbsp; catch{ _refreshTimeout=1; }&nbsp;&nbsp; <br>&nbsp; }</p>
+<p>&nbsp; //全部用户列表<br>&nbsp; public&nbsp; DataTable&nbsp; ActiveUsers<br>&nbsp; {<br>&nbsp;&nbsp; get{return&nbsp; _activeusers.Copy();}<br>&nbsp; }<br>&nbsp; <br>&nbsp; /// &lt;summary&gt;<br>&nbsp; /// 新用户登陆。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public void Login(ActiveUser user,bool SingleLogin)<br>&nbsp; {<br>&nbsp;&nbsp; DelTimeOut();&nbsp; //清除超时用户<br>&nbsp;&nbsp; if(SingleLogin){<br>&nbsp;&nbsp;&nbsp; //若是单人登陆则注销原来登陆的用户<br>&nbsp;&nbsp;&nbsp; this.Logout(user.UserName,false);<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; DataRow myRow;<br>&nbsp;&nbsp; try<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; myRow&nbsp; =&nbsp; _activeusers.NewRow();&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; myRow["Ticket"]&nbsp; =&nbsp; user.Ticket.Trim();<br>&nbsp;&nbsp;&nbsp; myRow["UserName"]&nbsp; =&nbsp; user.UserName.Trim();<br>&nbsp;&nbsp;&nbsp; myRow["TrueName"]&nbsp; =&nbsp; "" user.TrueName.Trim();<br>&nbsp;&nbsp;&nbsp; myRow["RoleID"]&nbsp; =&nbsp; "" user.RoleID.Trim();<br>&nbsp;&nbsp;&nbsp; myRow["ActiveTime"]&nbsp; =&nbsp; DateTime.Now;<br>&nbsp;&nbsp;&nbsp; myRow["RefreshTime"]&nbsp; =&nbsp; DateTime.Now;<br>&nbsp;&nbsp;&nbsp; myRow["ClientIP"]&nbsp; =&nbsp; user.ClientIP.Trim();<br>&nbsp;&nbsp;&nbsp; _activeusers.Rows.Add(myRow);<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; catch(Exception&nbsp; e)<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; throw(new&nbsp; Exception(e.Message));<br>&nbsp;&nbsp; }&nbsp; <br>&nbsp;&nbsp; _activeusers.AcceptChanges();<br>&nbsp;&nbsp; <br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///用户注销，根据Ticket或UserName。<br>&nbsp; /// &lt;/summary&gt; <br>&nbsp; private void Logout(string strUserKey,bool byTicket)<br>&nbsp; {<br>&nbsp;&nbsp; DelTimeOut();&nbsp; //清除超时用户<br>&nbsp;&nbsp; strUserKey=strUserKey.Trim();<br>&nbsp;&nbsp; string&nbsp; strExpr;&nbsp;&nbsp; <br>&nbsp;&nbsp; strExpr =byTicket ? "Ticket="   strUserKey  "" : "UserName="   strUserKey   "";<br>&nbsp;&nbsp; DataRow[]&nbsp; curUser;<br>&nbsp;&nbsp; curUser&nbsp; =&nbsp; _activeusers.Select(strExpr);<br>&nbsp;&nbsp; if&nbsp; (curUser.Length&nbsp; &gt;0&nbsp; )<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; for(int&nbsp; i&nbsp; =&nbsp; 0;&nbsp; i&nbsp; &lt;&nbsp; curUser.Length;&nbsp; i&nbsp;   )<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; curUser[i].Delete();<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; _activeusers.AcceptChanges();&nbsp;&nbsp; <br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///用户注销，根据Ticket。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; /// &lt;param name="strTicket"&gt;要注销的用户Ticket&lt;/param&gt;<br>&nbsp; public void Logout(string strTicket){<br>&nbsp;&nbsp; this.Logout(strTicket,true);<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///清除超时用户。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; private&nbsp; bool DelTimeOut()<br>&nbsp; {&nbsp;&nbsp; <br>&nbsp;&nbsp; string&nbsp; strExpr;&nbsp;&nbsp; <br>&nbsp;&nbsp;
+strExpr = "ActiveTime &lt; "   DateTime.Now.AddMinutes( 0 -
+_activeTimeout)   "or RefreshTime &lt; " DateTime.Now.AddMinutes( 0 -
+_refreshTimeout) "";&nbsp;&nbsp; <br>&nbsp;&nbsp; DataRow[]&nbsp; curUser;<br>&nbsp;&nbsp; curUser&nbsp; =&nbsp; _activeusers.Select(strExpr);<br>&nbsp;&nbsp; if&nbsp; (curUser.Length&nbsp; &gt;0&nbsp; )<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; for(int&nbsp; i&nbsp; =&nbsp; 0;&nbsp; i&nbsp; &lt;&nbsp; curUser.Length;&nbsp; i&nbsp;   )<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; curUser[i].Delete();&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; _activeusers.AcceptChanges();<br>&nbsp;&nbsp; return&nbsp; true;<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///更新用户活动时间。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public&nbsp; void&nbsp; ActiveTime(string&nbsp; strTicket)<br>&nbsp; {<br>&nbsp;&nbsp; DelTimeOut();<br>&nbsp;&nbsp; string&nbsp; strExpr;<br>&nbsp;&nbsp; strExpr&nbsp; =&nbsp; "Ticket="&nbsp;  &nbsp; strTicket&nbsp;  &nbsp; "";&nbsp; <br>&nbsp;&nbsp; DataRow[]&nbsp; curUser;<br>&nbsp;&nbsp; curUser&nbsp; =&nbsp; _activeusers.Select(strExpr);<br>&nbsp;&nbsp; if&nbsp; (curUser.Length&nbsp; &gt;0&nbsp; )<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; for(int&nbsp; i&nbsp; =&nbsp; 0;&nbsp; i&nbsp; &lt;&nbsp; curUser.Length;&nbsp; i&nbsp;   )<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; curUser[i]["ActiveTime"]=DateTime.Now;<br>&nbsp;&nbsp;&nbsp;&nbsp; curUser[i]["RefreshTime"]=DateTime.Now;<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; _activeusers.AcceptChanges();<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///更新系统自动刷新时间。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public&nbsp; void&nbsp; RefreshTime(string&nbsp; strTicket)<br>&nbsp; {<br>&nbsp;&nbsp; DelTimeOut();<br>&nbsp;&nbsp; string&nbsp; strExpr;<br>&nbsp;&nbsp; strExpr&nbsp; =&nbsp; "Ticket="&nbsp;  &nbsp; strTicket&nbsp;  &nbsp; "";&nbsp; <br>&nbsp;&nbsp; DataRow[]&nbsp; curUser;<br>&nbsp;&nbsp; curUser&nbsp; =&nbsp; _activeusers.Select(strExpr);<br>&nbsp;&nbsp; if&nbsp; (curUser.Length&nbsp; &gt;0&nbsp; )<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; for(int&nbsp; i&nbsp; =&nbsp; 0;&nbsp; i&nbsp; &lt;&nbsp; curUser.Length;&nbsp; i&nbsp;   )<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; curUser[i]["RefreshTime"]=DateTime.Now;<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; _activeusers.AcceptChanges();<br>&nbsp; }</p>
+<p>&nbsp; private ActiveUser SingleUser(string strUserKey,bool byTicket)<br>&nbsp; {<br>&nbsp;&nbsp; strUserKey=strUserKey.Trim();<br>&nbsp;&nbsp; string&nbsp; strExpr;<br>&nbsp;&nbsp; ActiveUser myuser;<br>&nbsp;&nbsp; strExpr =byTicket ? "Ticket="   strUserKey  "" : "UserName="   strUserKey   ""; <br>&nbsp;&nbsp; DataRow[]&nbsp; curUser;<br>&nbsp;&nbsp; curUser&nbsp; =&nbsp; _activeusers.Select(strExpr);<br>&nbsp;&nbsp; if&nbsp; (curUser.Length&nbsp; &gt;0&nbsp; )<br>{<br>&nbsp;&nbsp;&nbsp; string myTicket=(string)curUser[0]["Ticket"];<br>&nbsp;&nbsp;&nbsp; string myUser=(string)curUser[0]["UserName"];<br>&nbsp;&nbsp;&nbsp; string myName=(string)curUser[0]["TrueName"];<br>&nbsp;&nbsp;&nbsp; string myRoleID=(string)curUser[0]["RoleID"];&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; DateTime myActiveTime=(DateTime)curUser[0]["ActiveTime"];<br>&nbsp;&nbsp;&nbsp; DateTime myRefreshtime=(DateTime)curUser[0]["RefreshTime"];<br>&nbsp;&nbsp;&nbsp; string myClientIP =(string)curUser[0]["ClientIP"];<br>&nbsp;&nbsp;&nbsp; myuser=new ActiveUser(myTicket,myUser,myName,myRoleID,myActiveTime,myRefreshtime,myClientIP);&nbsp; <br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; else<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; myuser=new ActiveUser("","","","","");&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; return&nbsp; myuser;<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///按Ticket获取活动用户。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public ActiveUser SingleUser_byTicket(string strTicket)<br>&nbsp; {<br>&nbsp;&nbsp; return this.SingleUser(strTicket,true);<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///按UserName获取活动用户。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public ActiveUser SingleUser_byUserName(string strUserName)<br>&nbsp; {<br>&nbsp;&nbsp; return this.SingleUser(strUserName,false);<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///按Ticket判断用户是否在线。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public bool IsOnline_byTicket(string strTicket)<br>&nbsp; {<br>&nbsp;&nbsp; return (bool)(this.SingleUser(strTicket,true).UserName!="");<br>&nbsp; }</p>
+<p>&nbsp; /// &lt;summary&gt;<br>&nbsp; ///按UserName判断用户是否在线。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public bool IsOnline_byUserName(string strUserName)<br>&nbsp; {<br>&nbsp;&nbsp; return (bool)(this.SingleUser(strUserName,false).UserName!="");<br>&nbsp; }<br>}</p>
+<p><br>3、 新建一个继承自PlaceHolder名为Refresh的类，执行更新自动刷新时间操作。<br>&nbsp;</p>
+<p>/// &lt;summary&gt;<br>&nbsp;/// Refresh 执行更新自动刷新时间操作。<br>&nbsp;/// &lt;/summary&gt;<br>&nbsp;public class Refresh: PlaceHolder <br>&nbsp;{<br>&nbsp; /// &lt;summary&gt;<br>&nbsp; /// 设置存储Ticket的Session名称，默认为Ticket。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public virtual string SessionName<br>&nbsp; {<br>&nbsp;&nbsp; get{<br>&nbsp;&nbsp;&nbsp; object obj1 = this.ViewState["SessionName"];<br>&nbsp;&nbsp;&nbsp; if (obj1 != null){ return ((string) obj1).Trim(); }<br>&nbsp;&nbsp;&nbsp; return "Ticket";<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; set{<br>&nbsp;&nbsp;&nbsp; this.ViewState["SessionName"] = value;<br>&nbsp;&nbsp; }<br>&nbsp; }</p>
+<p>&nbsp; protected override void Render(HtmlTextWriter writer) <br>&nbsp; {<br>&nbsp;&nbsp; string myTicket=(string)this.Page.Session[this.SessionName];<br>&nbsp;&nbsp; if(myTicket!=null)<br>&nbsp;&nbsp; {&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; PassPort myPass = new PassPort();<br>&nbsp;&nbsp;&nbsp; myPass.RefreshTime(myTicket);<br>&nbsp;&nbsp;&nbsp; writer.Write("OK：" DateTime.Now.ToString());<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; else{<br>&nbsp;&nbsp;&nbsp; writer.Write("Sorry：" DateTime.Now.ToString());<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; base.Render(writer);<br>&nbsp;}<br>}</p>
+<p>4、 新建一个继承自PlaceHolder名为Script的类，生成执行xmlhttp的js脚本。。</p>
+<p><br>/// &lt;summary&gt;<br>&nbsp;/// Script 生成执行xmlhttp的js脚本。<br>&nbsp;/// &lt;/summary&gt;<br>&nbsp;public class Script: PlaceHolder<br>&nbsp;{<br>&nbsp; /// &lt;summary&gt;<br>&nbsp; /// 设置js自动刷新的间隔时间，默认为25秒。<br>&nbsp; /// &lt;/summary&gt;<br>&nbsp; public virtual int RefreshTime<br>&nbsp; {<br>&nbsp;&nbsp; get<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; object obj1 = this.ViewState["RefreshTime"];<br>&nbsp;&nbsp;&nbsp; if (obj1 != null){return int.Parse(((string) obj1).Trim());}<br>&nbsp;&nbsp;&nbsp; return 25;<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; set<br>&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; this.ViewState["RefreshTime"] = value;<br>&nbsp;&nbsp; }<br>&nbsp; }</p>
+<p>&nbsp; protected override void Render(HtmlTextWriter writer) <br>&nbsp; {<br>&nbsp;&nbsp; //从web.config中读取xmlhttp的访问地址<br>&nbsp;&nbsp; string refreshUrl=(string)ConfigurationSettings.AppSettings["refreshUrl"];<br>&nbsp;&nbsp; string scriptString = @" &lt;script language=""JavaScript""&gt;" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp; window.attachEvent(""onload"", " this.ClientID @"_postRefresh);" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp; var " this.ClientID @"_xmlhttp=null;" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp; function " this.ClientID @"_postRefresh(){" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; var " this.ClientID @"_xmlhttp = new ActiveXObject(""Msxml2.XMLHTTP"");" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; " this.ClientID @"_xmlhttp.Open(""POST"", """ refreshUrl @""", false);" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; " this.ClientID @"_xmlhttp.Send();" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; var refreshStr= " this.ClientID @"_xmlhttp.responseText;" writer.NewLine;<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; try {" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp;&nbsp; var refreshStr2=refreshStr;" writer.NewLine;<br>&nbsp;&nbsp; //scriptString  = @"&nbsp;&nbsp;&nbsp; alert(refreshStr2);" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; }" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; catch(e) {}" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp;&nbsp; setTimeout(""" this.ClientID @"_postRefresh()""," this.RefreshTime.ToString() @"000);" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&nbsp; }" writer.NewLine;<br>&nbsp;&nbsp; scriptString  = @"&lt;";<br>&nbsp;&nbsp; scriptString  = @"/";<br>&nbsp;&nbsp; scriptString  = @"script&gt;" writer.NewLine;</p>
+<p>&nbsp;&nbsp; writer.Write(writer.NewLine);<br>&nbsp;&nbsp; writer.Write(scriptString);<br>&nbsp;&nbsp; writer.Write(writer.NewLine);<br>&nbsp;&nbsp; base.Render(writer);<br>&nbsp; }<br>&nbsp;}</p>
+<p><br>注意以上四个类同属于一个名为OnlineUser的工程，他们的命名空间为OnlineUser，编译生成一个dll。</p>
+<p>&nbsp;</p>
+<p><br>===============================================</p>
+<p>&nbsp;</p>
+<p>下面我简单介绍一下调用方法：</p>
+<p>1、 新建一个名为OnlineUserDemo的asp.net web应用程序<br>2、 在vs的工具箱选项卡上右击，选择[添加/移除项]，浏览定位到OnlineUser.dll，确定即可把Refresh 和Script添加到工具箱。<br>3、 把自动生成的WebForm1.aspx删除，并设置web.config<br>&lt;appSettings&gt;<br>&nbsp;&nbsp; &lt;add key="ActiveTimeout" value="30" /&gt;<br>&nbsp;&nbsp; &lt;add key="RefreshTimeout" value="1" /&gt;<br>&nbsp;&nbsp; &lt;add key="refreshUrl" value="refresh.aspx" /&gt;<br>&nbsp;&lt;/appSettings&gt;<br>4、
+添加一个名为Online.aspx的web窗体，给该窗体添加一个Script控件，一个DataGrid控件（id为DataGrid1），两个
+HyperLink控件（分别链接到login.aspx和logout.aspx，text属性分别设置为“登陆”和“注销”），调整好四个控件的位
+置，转到codebehind，在Page_Load中加入如下代码：<br>string myTicket=(string)this.Page.Session["Ticket"];<br>&nbsp;&nbsp; if(myTicket!=null)<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; OnlineUser.PassPort myPassPort= new OnlineUser.PassPort();<br>&nbsp;&nbsp;&nbsp; if(myPassPort.IsOnline_byTicket(this.Session["Ticket"].ToString()))<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; myPassPort.ActiveTime(this.Session["Ticket"].ToString());<br>&nbsp;&nbsp;&nbsp;&nbsp; DataGrid1.DataSource=myPassPort.ActiveUsers;<br>&nbsp;&nbsp;&nbsp;&nbsp; DataGrid1.DataBind();<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; else{<br>&nbsp;&nbsp;&nbsp;&nbsp; //若在线用户列表中找不到当前用户,则定向到注销页面<br>&nbsp;&nbsp;&nbsp;&nbsp; Response.Redirect("Logout.aspx");<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; else{<br>&nbsp;&nbsp;&nbsp; Response.Redirect("Login.aspx");<br>&nbsp;&nbsp; }<br>5、
+添加一个名为login.aspx的web窗体，给该窗体添加一个label控件（id为Label1），设置text属性为“输入一个用户名”，再添加
+一个textbox控件（id为TextBox1）和一个button控件（id为Button1），调整好他们的位置，双击Button1控件转到
+codebehind，为Button1的Click事件加入如下代码：<br>if(TextBox1.Text.Trim()=="")<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp; //不能为空<br>&nbsp;&nbsp;&nbsp; String scriptString = @"&lt;script language=JavaScript&gt;";<br>&nbsp;&nbsp;&nbsp; scriptString  = @"alert(""输入一个用户名\n"");"; <br>&nbsp;&nbsp;&nbsp; scriptString  = @"history.go(-1);";<br>&nbsp;&nbsp;&nbsp; scriptString  = @"&lt;";<br>&nbsp;&nbsp;&nbsp; scriptString  = @"/";<br>&nbsp;&nbsp;&nbsp; scriptString  = @"script&gt;";<br>&nbsp;&nbsp;&nbsp; if(!this.Page.IsStartupScriptRegistered("Startup"))<br>&nbsp;&nbsp;&nbsp;&nbsp; this.Page.RegisterStartupScript("Startup", scriptString);<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; else{<br>&nbsp;&nbsp;&nbsp; OnlineUser.PassPort myPassPort= new OnlineUser.PassPort();<br>&nbsp;&nbsp;&nbsp; string myTicket=DateTime.Now.ToString("yyyyMMddHHmmss");<br>&nbsp;&nbsp;&nbsp; string myUser=TextBox1.Text.Trim();<br>&nbsp;&nbsp;&nbsp; string myClintIP=this.Request.UserHostAddress;<br>&nbsp;&nbsp;&nbsp; this.Session["Ticket"]=myTicket;<br>&nbsp;&nbsp;&nbsp; OnlineUser.ActiveUser myActiveUser=new OnlineUser.ActiveUser(myTicket,myUser,myUser,"test",myClintIP);<br>&nbsp;&nbsp;&nbsp; myPassPort.Login(myActiveUser,true);<br>&nbsp;&nbsp;&nbsp; Response.Redirect("Online.aspx");<br>&nbsp;&nbsp; }<br>6、 添加一个名为logout.aspx的web窗体，给该窗体添加一个HyperLink控件，指向login.aspx，text属性设置为“重登陆”转到codebehind，在Page_Load中加入如下代码：<br>OnlineUser.PassPort myPassPort= new OnlineUser.PassPort();<br>&nbsp; myPassPort.Logout(this.Session["Ticket"].ToString());<br>&nbsp;this.Session["Ticket"]="";</p>
+<p>7、 添加一个名为Refresh.txt的文本文件，设置其内容为：<br>&lt;%@ Register TagPrefix="cc2" Namespace="OnlineUser" Assembly="OnlineUser" %&gt;<br>&lt;%@ Page %&gt;<br>&lt;cc2:Refresh id="myRefresh" runat="server"&gt;&lt;/cc2:Refresh&gt;<br>把Refresh.txt改名为Refresh.aspx</p>
+<p>8、 编译生成工程。</p>
+<p>===============================================</p>
+<p><br>下面进行功能测试：</p>
+<p>1、 打开浏览器，在地址栏输入<br>http://你机器的IP地址/onlineuserdemo/Login.aspx<br>2、 输入一个用户名（假设是test1）登陆，自动转到online.aspx页面<br>3、 找同网段的另外一台机器（设你的机器为a，这台机器为b），重复执行第一步。<br>4、 输入一个用户名（假设是test2）登陆，自动转到online.aspx页面<br>5、 在b机器不断刷新online.aspx，若发现test1用户RefreshTime每过25秒自动更新一次而ActiveTime不变（这个时候a机器不要刷新页面啊），则证明a机器的自动刷新生效。<br>6、 在a机器不断刷新online.aspx，若发现test2用户RefreshTime每过25秒自动更新一次而ActiveTime不变（这个时候b机器不要刷新页面啊），则证明b机器的自动刷新生效。<br>7、 直接关闭一台机器（假设是a）上的online.aspx浏览窗口，在另一台机器（就是b啦）上刷新online.aspx，若发现1分钟后test1掉线在线用户只剩下test2，证明通过_refreshTimeout清除在线用户成功。<br>8、 若5、6、7三步正常，则大功告成，否则就再调试调试~~</p>
+<p><br>==========================================================</p>
+<p>&nbsp;</p>
+<p><br>附：网上现有的一些在线人数统计的文章</p>
+<p>ASP.NET 在线用户列表<br><a href="http://www.mscenter.edu.cn/blog/jeffrey/archive/2005/03/25/1024.html">http://www.mscenter.edu.cn/blog/jeffrey/archive/2005/03/25/1024.html</a><br>如何显示在线人数和所在位置 <br><a href="http://www.7880.com/Info/Article-40c2aca0.html">http://www.7880.com/Info/Article-40c2aca0.html</a> <br>不用Golobal.asa和session实现在线人数统计 <br><a href="http://www.7880.com/Info/Article-31034d60.html">http://www.7880.com/Info/Article-31034d60.html</a>&nbsp; <br>利用文件属性结合Session实现在线人数统计 <br><a href="http://www.7880.com/Info/Article-2b369f40.html">http://www.7880.com/Info/Article-2b369f40.html</a> <br>网站当前的在线人数 <br><a href="http://www.7880.com/Info/Article-2a6d34c0.html">http://www.7880.com/Info/Article-2a6d34c0.html</a> <br>基于数据库的在线人数，日访问量等统计 <br><a href="http://www.7880.com/Info/Article-29f01580.html">http://www.7880.com/Info/Article-29f01580.html</a> <br>网页在线人数统计的做法 <br><a href="http://www.7880.com/Info/Article-1d4ebf20.html">http://www.7880.com/Info/Article-1d4ebf20.html</a> <br>不用Global.asa实现在线人数统计 <br><a href="http://www.7880.com/Info/Article-1c09bc00.html">http://www.7880.com/Info/Article-1c09bc00.html</a>&nbsp; <br>如何实现网页在线人数统计 <br>&nbsp;<a href="http://www.7880.com/Info/Article-12bd5d00.html">http://www.7880.com/Info/Article-12bd5d00.html</a> <br>两种统计当前在线人数的方法 <br><a href="http://www.7880.com/Info/Article-af79e0.html">http://www.7880.com/Info/Article-af79e0.html</a>&nbsp; </p>
+</div>
+</span></p><!--body end-->
+<div class="clear"></div><br /><br />
+<div>上一篇：<a href='/blog/200905/10023.html'>在线用户统计 3</a> &nbsp;<span id="sp_br2" style="display:none;"><br /></span> <span id="sp_next2"></span></div>
+<div class="bottags">文章标签：<!--tags start--><a href='/tag/在线用户列表.htm'>在线用户列表</a><!--tags end--></div>
+<h1>评论</h1><a name="comment"></a>
+<div id="comment_box">
+<!--comment start--><!--comment end-->
+</div>
+<!--评论-->
+<br /><br />
+<fieldset>
+<legend>发表评论</legend>
+<table>
+<tr><td>姓 名：</td><td><input id="txtName" type="text" class="put" style="width:120px;" /></td></tr>
+<tr><td>主 页：</td><td><input id="txtUrl" type="text" class="put" style="width:300px;" /></td></tr>
+<tr><td>评 分：</td><td><div id="rating_span"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i></div></td></tr>
+<tr><td style="vertical-align:top; padding-top:4px;">评 论：</td><td><textarea id="txtComment" class="put" rows="4" cols="50"></textarea></td></tr>
+<tr><td></td><td><input type="button" value="提 交" onclick="addPost(this)" /><span id="sp_note"></span></td></tr>
+</table>
+</fieldset>
+</div>
+</div>
+<div id="rightdiv" class="right">
+<!--right start-->
+<p class="ptit">作者信息</p>
+<div id="authorinfo_box" class="rightsubbox">
+<!--author info start--><p style='text-align:center;'><a href='/openblog.htm'><img id='author_img' class='photo' src='/upload/photo/openblog.jpg' onerror='this.src="/upload/photo/nophoto.jpg";' alt='openblog' /></a></p><p><a href='/openblog.htm'>OpenBlog</a>，男, 0</p><p>邮箱：<a href='mailto:admin@cnopenblog.com'>admin@cnopenblog.com</a></p><p>主页：<a href='www.cnopenblog.com'>www.cnopenblog.com</a></p><br /><p>个人简介：</p><p style='text-indent:2em;'>是你为我找到另一个天堂，远比想象的要完美</p><!--author info end-->
+</div>
+<p class="ptit">最新文章</p>
+<div id="newblog_box" class="rightsubbox">
+<!--new blog start--><ol><li><a href='/blog/200905/10029.html'>iis 配置 php</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10028.html'>图标变成不可识别图标 解决办法</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10027.html'>该内存不能为 read/written</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10026.html'>查询除特定列外的所有列</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10025.html'>管理触发器</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10024.html'>ASP.NET在线用户列表精确版——解决用户意外退出在线列表无法及时更新问题</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10023.html'>在线用户统计 3</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10022.html'>在线用户统计 2</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li><li><a href='/blog/200905/10021.html'>在线用户统计</a> - <a href='/openblog/1.htm' class='hui'>未分类</a></li></ol><!--new blog end-->
+</div>
+<p class="ptit">文章分类</p>
+<div id="category_box" class="rightsubbox">
+<!--category start--><ul><li><a href='/openblog/1.htm'>未分类（10）</a> - <a href='/openblog/1/feed.htm' target=_blank>RSS</a></li></ul><!--category end-->
+</div>
+<p class="ptit">参加的群组</p>
+<div id="group_box" class="rightsubbox">
+<!--group start--><div class='groupitem'><a href='/group/10000.htm'><img src='/upload/group/10000-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10000.htm'>希望志群</a></p></div><div class='groupitem'><a href='/group/10003.htm'><img src='/upload/group/10003-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10003.htm'>幸福家庭</a></p></div><div class='clear'></div><div class='groupitem'><a href='/group/10008.htm'><img src='/upload/group/10008-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10008.htm'>股票疯子</a></p></div><div class='groupitem'><a href='/group/10009.htm'><img src='/upload/group/10009-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10009.htm'>高考</a></p></div><div class='clear'></div><div class='groupitem'><a href='/group/10010.htm'><img src='/upload/group/10010-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10010.htm'>飞行天下</a></p></div><div class='groupitem'><a href='/group/10011.htm'><img src='/upload/group/10011-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10011.htm'>古文爱好者</a></p></div><div class='clear'></div><div class='groupitem'><a href='/group/10012.htm'><img src='/upload/group/10012-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10012.htm'>考古专家</a></p></div><div class='groupitem'><a href='/group/10013.htm'><img src='/upload/group/10013-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10013.htm'>推翻相对论</a></p></div><div class='clear'></div><div class='groupitem'><a href='/group/10014.htm'><img src='/upload/group/10014-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10014.htm'>神逛</a></p></div><div class='groupitem'><a href='/group/10015.htm'><img src='/upload/group/10015-s.jpg' onerror='this.src="/upload/group/nophoto-s.jpg";' /></a><p><a href='/group/10015.htm'>滑稽雨季</a></p></div><div class='clear'></div><div class='clear'></div><!--group end-->
+</div>
+<div style="padding:0px 10px;">
+<p class="comment_a">给作者留言</p>
+<textarea id="txtMsg" class="put" rows="2" style="width:210px;"></textarea>
+<p>( 提醒：非注册用户在留言中加上您的联系方式，作者可以很快回复您。)</p>
+<p><input type="button" value="提 交" onclick="addMsg(this)" /></p>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="bodybottom"></div>
+<div class="footer">
+<p style="text-align:right; padding-right:40px;"><a href="/about.html">关于cnOpenBlog</a> &nbsp; <a href="/contact.html">联系我们</a> &nbsp; &copy;2009 <a href="/">cnOpenBlog.com</a> &nbsp;版权所有</p><script type="text/javascript">document.write(decodeURI('%3Cscript%20type=%22text/javascript%22%20src=%22/js/all.js%22%3E%3C/script%3E'));</script>
+</div>
+</body>
+</html>

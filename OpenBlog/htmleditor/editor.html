@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>简单Html编辑器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link type="text/css" rel="Stylesheet" href="file/edit.css" />
+    <script type="text/javascript" src="file/editfunc.js"></script>
+    <script type="text/javascript" src="file/colorSelect.js"></script>
+</head>
+<body>
+	<div class="tabbox">
+		<table id="tabtb" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="ico"><img title="剪切" alt="Cut" onclick="format('Cut');" src="file/1.gif" /></td>
+				<td class="ico"><img title="复制" alt="Copy" onclick="format('Copy');" src="file/2.gif" /></td>
+				<td class="ico"><img title="粘贴" alt="Paste" onclick="format('Paste');" src="file/3.gif" /></td>
+				<td class="ico"><img alt="|" src="file/line.gif" /></td>
+				<td class="ico ico2"><img id="imgFontface" title="字体" alt="Face" onclick="fDisplayElement(event,'fontface','');" src="file/4.gif" /></td>
+				<td class="ico ico2"><img id="imgFontsize" title="字号" alt="Size" onclick="fDisplayElement(event,'fontsize','');" src="file/5.gif" /></td>
+				<td class="ico"><img title="加粗" alt="B" onclick="format('Bold');" src="file/6.gif" /></td>
+				<td class="ico"><img title="斜体" alt="I" onclick="format('Italic');" src="file/7.gif" /></td>
+				<td class="ico"><img title="下划线" alt="U" onclick="format('Underline');" src="file/8.gif" /></td>
+				<td class="ico"><img title="左对齐" alt="JL" onclick="format('Justifyleft');" src="file/9.gif" /></td>
+				<td class="ico"><img title="中间对齐" alt="JC" onclick="format('Justifycenter');" src="file/10.gif" /></td>
+				<td class="ico"><img title="右对齐" alt="JR" onclick="format('Justifyright');" src="file/11.gif" /></td>
+				<td class="ico"><img title="数字编号" alt="NL" onclick="format('Insertorderedlist');" src="file/12.gif" /></td>
+				<td class="ico"><img title="项目编号" alt="OL" onclick="format('Insertunorderedlist');" src="file/13.gif" /></td>
+				<td class="ico"><img title="增加缩进" alt="OD" onclick="format('Outdent');" src="file/14.gif" /></td>
+				<td class="ico"><img title="减少缩进" alt="ID" onclick="format('Indent');" src="file/15.gif" /></td>
+				<td class="ico ico3"><img id="imgForeColor" title="字体颜色" alt="FC" onclick="foreColor(event);" src="file/16.gif" /></td>
+				<td class="ico ico2"><img id="imgBackColor" title="背景颜色" alt="BC" onclick="backColor(event);" src="file/17.gif" /></td>
+				<td class="ico"><img title="添加链接" alt="Link" onclick="createLink();" src="file/18.gif" /></td>
+				<td class="ico"><img title="插入图片" alt="IMG" onclick="createImg();" src="file/19.gif" /></td>
+				<td class="ico"><img title="插入代码" alt="Code" onclick="insertCode();" src="file/code.gif" /></td>
+				<td class="ico"><img id="imgFace" title="插入表情" alt="Face" onclick="insertFace();" src="file/face.gif" /></td>
+				<td class="ico"><img alt="|" src="file/line.gif" /></td>
+				<td ><input id="switchMode_id" name="switchMode_name" type="checkbox" onclick="setMode(this.checked);" title="编辑源码" /><label for="switchMode_name" style="font-size: 12px; font-family:Arial;">HTML</label></td>
+			</tr>
+		</table>
+	</div>
+	<div id="dvForeColor_id" style="display: none; left: -500px; width: 100px; position: absolute; top: -500px; height: 100px;">
+		<table style="border: 1px solid rgb(136, 136, 136);width:218px;height:25px;" cellpadding="0" cellspacing="0">
+			<tr>
+				<td id="tdView_id" style="width:110px;">&nbsp;</td>
+				<td id="tdColorCode_id" style="text-align:center; vertical-align:middle; background-color:#ffffff;"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="dvPortrait_id" style="display: none; left: -500px; width: 100px; position: absolute; top: -500px; height: 100px;"></div>
+	<div id="fontface_id" style="display:none;">
+	<script type="text/javascript">
+	var faces = new Array("宋体","黑体","楷体","隶书","幼圆","Arial","Arial Narrow","Arial Black","Comic Sans MS","Courier","System","Times New Roman","Verdana");
+	for(var i=0;i<faces.length;i++){
+	    document.write('<a class="n" style="font-family: \''+faces[i]+'\';" onclick="format(\'fontname\',this.innerHTML);this.parentNode.style.display=\'none\';return false;"  href="javascript:void(0);">'+faces[i]+'</a>');
+	}
+	</script>
+	</div>
+	<div id="fontsize_id" style="display:none;">
+	<script type="text/javascript">
+	var sizes = new Array("xx-small","x-small","small","medium","large","x-large","xx-large");
+	var texts = new Array("极小","特小","小","中","大","特大","极大");
+	for(var i=0;i<7;i++){
+	    document.write('<a class="n" style="font-size: '+sizes[i]+';" onclick="format(\'fontsize\','+i+');this.parentNode.style.display=\'none\';return false;" href="javascript:void(0);">'+texts[i]+'</a>');
+	}
+	</script>
+	</div>
+	<div id="dvFace_id" style="display:none;"></div>
+	<div style="height: 283px;" id="divEditor_id">
+	<table border="0" cellspacing="0" cellpadding="0" style="width:100%;height:287px;"><tr><td style="border:1px solid #C5C5C5; border-top:0px;background-color:#ffffff;">
+		<script language="JavaScript" type="text/javascript">
+		if(document.all){
+			document.write('<IFRAME class="HtmlEditor" ID="HtmlEditor_id" name="HtmlEditor_frm" style="height:286px;width:100%;" frameBorder="0" marginHeight=0 marginWidth=0 src="file/blankpage.html"></IFRAME>');
+		}else{
+			document.write('<IFRAME class="HtmlEditor" ID="HtmlEditor_id" name="HtmlEditor_frm" style="height:283px;width:100%;margin-left:1px;margin-bottom:1px;" frameBorder="0" marginHeight=0 marginWidth=0 src="file/blankpage.html"></IFRAME>');
+		}
+		</script>
+	</td></tr></table>
+	</div>
+	<script language="JavaScript" type="text/javascript">
+	document.write('<textarea ID="sourceEditor_id" style="height:286px;width:100%;display:none"></textarea>');
+	</script>
+	<script type="text/javascript">
+	function insertCode()
+	{
+	    if(!top) return;
+	    top.insertCode();
+	}
+	</script>
+</body>
+</html>

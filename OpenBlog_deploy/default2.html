@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>文章标题在这里</title>
+    <meta http-equiv="content-type" content="text/html; charset=gb2312" />
+    <meta name="keywords" content="tag1,tag2" />
+    <link type="text/css" rel="Stylesheet" href="/css/blog.css" />
+    <script type="text/javascript" src="/js/blog.js"></script>
+</head>
+<body>
+    <div class="header">
+    <a href="http://www.cnopenblog.com/">
+    <span style="font-size:22px; font-family:Nina; color:#cccccc;">cn</span>
+    <span style="font-size:38px; font-family:Nina; color:#F3A217;">open</span>
+    <span style="font-size:50px; font-family:Nina; color:#257DB9;">Blog</span>
+    </a>
+    <div id="toptabs" class="topright">
+    <a class="reg" href="/register.aspx">快速注册</a><a href="/login.aspx" title="登录到cnOpenBlog"><b>登 录</b></a>
+    <a href='/group/' title='博友群组'><b>群 组</b></a><a href='/12.htm' title='查看最新的文章'><b>最新文章</b></a><a href='/' title='cnOpenBlog首页'><b>首 页</b></a>
+    </div>
+    </div>
+    <div class="bodytop"><h1 class="pagetitle">这里是朱乙的博客</h1><h5 class="pagesubtitle">博客副标题在这里</h5></div>
+    <div class="bodymiddle" style="padding:0px;width:956px;">
+    <div id="leftdiv" class="left">
+    <!--left start-->
+<div style="padding:10px 0px;">
+<a>首页</a> &gt;&gt; <a>电脑/网络</a> &gt;&gt; <a>互联网</a>
+</div>
+<div><a class="sameclass" href="#" onclick="javascript:showblogs(this);return false;">同类文章</a></div>
+<div id="blogs_div" style="display:none;"></div>
+<div id="prev_next_blog">上一篇：<a href="#">本功能的目的就是设，主界</a> &nbsp;<span id="sp_br" style="display:none;"><br /></span> <span id="sp_next1">下一篇：<a href="#">后主界设备启动后，主界面优先启动，显示一些本地</a></span></div>
+<!--内容start-->
+<h1>文章标题在这里</h1>
+<div>
+<div style="float:left;"><span id="star_sp"></span></div>
+<div style="float:right; text-align:left; padding-right:10px;">2009-03-13 09:03 阅读（103） <a href="#comment">评论（5）</a> <a class="ebtn" href="javascript:void(0);" onclick="javascript:addFavorite();">收藏</a></div>
+</div>
+<div class="clear"></div><br />
+<h1>1、<span style="font-family: 宋体;">说明</span></h1>
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">标准的</span>Sideshow<span style="font-family: 宋体;">设备连接</span>PC<span style="font-family: 宋体;">后，由</span>PC<span style="font-family: 宋体;">上</span>Sideshow<span style="font-family: 宋体;">管理中心负责向</span>Sideshow<span style="font-family: 宋体;">设备添加</span>Gadget<span style="font-family: 宋体;">应用，该</span>Gadget<span style="font-family: 宋体;">实例被</span>Sideshow<span style="font-family: 宋体;">设备缓存到内存中。当</span>Sideshow<span style="font-family: 宋体;">设备未连接</span>PC<span style="font-family: 宋体;">，掉电重启后，所有原先添加的</span>Gadget<span style="font-family: 宋体;">信息将全部丢失。</span></p>
+
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">本功能的目的就是，</span>Sideshow<span style="font-family: 宋体;">设备在上述情况下重启，可以自动恢复原先的</span>Gadget<span style="font-family: 宋体;">应用。</span></p>
+<h1>2<span style="font-family: 宋体;">、</span>Sideshow<span style="font-family: 宋体;">功能模块关系图</span></h1>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="text-indent: 21pt;">SideShow<span style="font-family: 宋体;">设备启动后，主界面优先启动，显示一些本地</span>Gadget<span style="font-family: 宋体;">和系统基本信息（日期时间等）。于此同时</span>Message<span style="font-family: 宋体;">组件也开始工作，全权接管和</span>PC Sideshow<span style="font-family: 宋体;">相关的通信功能，新的</span>Gadget<span style="font-family: 宋体;">也就是通过该通道添加到</span>Sideshow<span style="font-family: 宋体;">设备中来，新的画面、信息、状态也源源不断由</span>PC<span style="font-family: 宋体;">向</span>SideShow<span style="font-family: 宋体;">设备而来，此时</span>SideShow<span style="font-family: 宋体;">设备也会根据</span>Gadget<span style="font-family: 宋体;">的操作情况，主动向</span>PC Sideshow<span style="font-family: 宋体;">管理中心回传</span>gadget<span style="font-family: 宋体;">的状态信息（包括是否获得焦点、按键信息、菜单选择信息等等）。</span></p>
+
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">当</span>Gadget<span style="font-family: 宋体;">相关信息由</span>PC<span style="font-family: 宋体;">过来时，会先存储到</span>Cache<span style="font-family: 宋体;">中去，并不直接显示相关画面，</span>UI<span style="font-family: 宋体;">引擎根据需要，会随时从</span>Cache<span style="font-family: 宋体;">中获取相关界面元素。</span></p>
+<h1>3<span style="font-family: 宋体;">、</span>Gadget<span style="font-family: 宋体;">本地存储实现</span></h1>
+
+<h2>3.1<span style="font-family: 宋体;">、实现思路</span></h2>
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">虽然所有的</span>UI<span style="font-family: 宋体;">信息都缓存到</span>Cache<span style="font-family: 宋体;">中，但是由于显示</span>Gadget<span style="font-family: 宋体;">是一个动态过程，是显示引擎根据需要，动态从</span>Cache<span style="font-family: 宋体;">中构建</span>Gadget<span style="font-family: 宋体;">。而该需要就是</span>Message<span style="font-family: 宋体;">组件通知并促成的。如果仅仅把</span>Cache<span style="font-family: 宋体;">的内存持久化，而不启动消息循环引擎，</span>Gadget<span style="font-family: 宋体;">是无法加载并应用的。</span></p>
+
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">一切的根源来至于</span>Message<span style="font-family: 宋体;">组件中的各种不同的消息，所以最直接的思路就是截获并持久化相关消息，</span> <span style="font-family: 宋体;">并在设备启动时（要先判断是否联机，如果已联机，则不执行任何代码），读取并投送相关消息，模拟</span>Sideshow<span style="font-family: 宋体;">设备联机时的相关信息交互，从而实现了</span>Gadget<span style="font-family: 宋体;">非联机状态情况下的动态加载，由于是通过模拟消息方式实现了</span>Gadget<span style="font-family: 宋体;">的加载，所以此时</span>Gadget<span style="font-family: 宋体;">的功能和联机时无异（注意：由于没有联机，所以</span>Gadget<span style="font-family: 宋体;">显示的信息和内容是非即时的）。</span></p>
+<h2><a name="_2.4.1、Monitor__Ping(0x00000000)"></a>3.2<span style="font-family: 宋体;">、具体实现</span></h2>
+
+<h3>3.2.1 <span style="font-family: 宋体;">消息结构简介</span></h3>
+<p style="text-indent: 21pt;">PC<span style="font-family: 宋体;">和</span>Sideshow<span style="font-family: 宋体;">设备相关的消息共</span>74<span style="font-family: 宋体;">种，消息结构分两部分，一是消息头（包含消息指令），二是</span>Payload<span style="font-family: 宋体;">（负荷数据），我们要缓存的数据也主要是这两部分。</span></p>
+<p style="text-indent: 21pt;">&nbsp;</p>
+<p style="text-indent: 21pt;"><span style="font-family: 宋体;">详情可参见《</span>SideShow<span style="font-family: 宋体;">通信协议》相关文档。</span></p>
+<!--内容end-->
+<div class="clear"></div><br /><br />
+<div>上一篇：<a href="#">本功能的目的就是</a> &nbsp;<span id="sp_br2" style="display:none;"><br /></span> <span id="sp_next2">下一篇：<a href="#">设备启动后，主界面优先启动，显示一些本地</a></span></div>
+<div class="bottags">文章标签：<a href="/search.aspx?q=tag:gridview">Gridview</a>，<a href="#">用户控件</a>，<a href="#">常用工具</a>，<a href="#">高级编程</a></div>
+<h1>评论</h1><a name="comment"></a>
+<div id="commentbox">
+<div class="comment">
+<div class="cleft"><a><img src="/upload/photo/nophoto-s.jpg" /></a></div>
+<div class="cright">
+<div class="chead"><span>#1楼</span> <a href="#">张三话</a> 于 <span>2009-03-13 09:03</span> <a href="javascript:void(0);" onclick="javascript:quote(this);">引用</a></div>
+<div class="cbody">评论内容 阿斯蒂芬 阿斯蒂芬沃尔夫阿斯蒂芬</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<!--评论-->
+<br /><br />
+<fieldset>
+<legend>发表评论</legend>
+<table>
+<tr><td>姓 名：</td><td><input id="txtName" type="text" class="put" style="width:120px;" /></td></tr>
+<tr><td>主 页：</td><td><input id="txtUrl" type="text" class="put" style="width:300px;" /></td></tr>
+<tr><td>评 分：</td><td><div id="rating_span"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i></div></td></tr>
+<tr><td style="vertical-align:top; padding-top:4px;">评 论：</td><td><textarea id="txtComment" class="put" rows="4" cols="50"></textarea></td></tr>
+<tr><td></td><td><input type="button" value="提 交" onclick="addPost(this)" /></td></tr>
+</table>
+</fieldset>
+    </div>
+    <div id="rightdiv" class="right">
+    <!--right start-->
+<p class="ptit">作者信息</p>
+<div class="rightsubbox">
+<p style="text-align:center;"><a href="#"><img id="author_img" src="/upload/photo/nophoto.jpg" alt="zhuyi" class="photo" /></a></p>
+<p><a href="#">朱乙</a>，男，23</p>
+<p>邮箱：<a href="#">sqzhuyi@gmail.com</a></p>
+<p>主页：<a href="#">http://www.cnopenblog.com/<br />sqzhuyi</a></p>
+<br />
+<p>个人简介：</p>
+<p style="text-indent:2em;">读取并投送相关消息，模拟Sideshow设备联机时的相关信息交互，从而实现了Gadget非联机状态情况下的动态加载，由于是通过模拟消息方式实现了Gadget的加载。</p>
+</div>
+<br />
+<p class="ptit">最新文章</p>
+<div class="rightsubbox">
+<ol>
+<li><a href="#">我的第一篇文章</a> - <a href="#" class="hui">互联网</a></li>
+<li><a href="#">真的是这样吗</a> - <a href="#" class="hui">软件</a></li>
+<li><a href="#">年南阳理工软件学院毕业</a> - <a href="#" class="hui">生活百科</a></li>
+<li><a href="#">我的第一篇文章</a> - <a href="#" class="hui">互联网</a></li>
+<li><a href="#">真的是这样吗</a> - <a href="#" class="hui">软件</a></li>
+<li><a href="#">年南阳理工软件学院毕业</a> - <a href="#" class="hui">生活百科</a></li>
+</ol>
+</div>
+<br />
+<p class="ptit">文章分类</p>
+<div class="rightsubbox">
+<ul>
+<li><a href="#">互联网</a> <a href="#">（5）</a>- <a href="#">RSS</a></li>
+<li><a href="#">软件</a> <a href="#">（2）</a>- <a href="#">RSS</a></li>
+<li><a href="#">JavaScript</a> <a href="#">（6）</a>- <a href="#">RSS</a></li>
+<li><a href="#">生活百科</a> <a href="#">（28）</a>- <a href="#">RSS</a></li>
+</ul>
+</div>
+<br />
+<p class="ptit">参加的群组</p>
+<div id="group_div" class="rightsubbox">
+<div class="groupitem"><a href="#"><img src="/upload/group/10004-s.jpg" /></a><p><a href="#">幸福家庭</a></p></div>
+<div class="groupitem"><a href="#"><img src="/upload/group/10004-s.jpg" /></a><p><a href="#">幸福家庭</a></p></div>
+<div class="clear"></div>
+<div class="groupitem"><a href="#"><img src="/upload/group/10004-s.jpg" /></a><p><a href="#">幸福家庭</a></p></div>
+<div class="clear"></div>
+</div>
+<br />
+<div style="padding:0px 10px;">
+<p class="comment_a">给作者留言</p>
+<textarea id="txtMsg" class="put" rows="3" style="width:210px;"></textarea>
+<p style="font-size:11px; line-height:120%;">( 提醒：非注册用户在留言中加上您的联系方式，作者可以很快回复您。)</p>
+<p><input type="button" value="提 交" onclick="addMsg(this)" /></p>
+</div>
+    </div>
+    <div class="clear"></div>
+    </div>
+    <div class="bodybottom"></div>
+    <div class="footer">
+    <p style="text-align:right; padding-right:40px;"><a href="#">关于OpenBlog</a> &nbsp; <a href="#">联系我们</a> &nbsp; &copy;2009 cnOpenBlog.com &nbsp;版权所有</p><script type="text/javascript">document.write(decodeURI('%3Cscript%20type=%22text/javascript%22%20src=%22/js/all.js%22%3E%3C/script%3E'));</script>
+    </div>
+</body>
+</html>

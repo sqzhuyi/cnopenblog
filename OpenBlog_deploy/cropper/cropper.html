@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>javascript</title>
+<link href="css/common.css" type=text/css rel=stylesheet>
+<script type="text/javascript" src="script/prototype.js"></script>
+<script type="text/javascript" src="script/cropper/scriptaculous.js?load=builder,dragdrop"></script>
+<script type="text/javascript" src="script/cropper/cropper.js"></script>
+<script type="text/javascript">
+var position=new Array();
+function onEndCrop(opic){
+	$('x1').value=position[0]=opic.x1;
+	$('y1').value=position[1]=opic.y1;
+	$('x2').value=position[2]=opic.x2;
+	$('y2').value=position[3]=opic.y2;
+}
+Event.observe(window,'load',function(){
+		new Cropper.ImgWithPreview('opic',{minWidth:120,minHeight:90,ratioDim:{x:10,y:10},displayOnInit:true,onEndCrop:onEndCrop,previewWrap:'preview'})
+	});		
+</script>
+</head>
+<body>
+<div style="margin:5px auto; width:760px;"><h1>裁剪预览：</h1><div id="preview"></div></div>
+<div style="margin:5px auto; width:760px;"><img src="mn.jpg" id="opic"/></div>
+<form action="/ajax/uploadfile.aspx" method="post">
+<input type="hidden" name="cutimg" value="1" />
+<input type="hidden" id="x1" name="x1" />
+<input type="hidden" id="y1" name="y1" />
+<input type="hidden" id="x2" name="x2" />
+<input type="hidden" id="y2" name="y2" />
+<input type="submit" value="运行裁图" />
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页</title>
+    <link type="text/css" rel="Stylesheet" href="/css/all.css" />
+    <script type="text/javascript" src="/js/public.js"></script>
+    <style type="text/css">
+    .gleft { float:left; width:698px; border:solid 2px #999; border-right:none; margin-left:20px; padding:10px 20px; background-color:#ffffff; -moz-border-radius-topleft: 14px;-webkit-border-radius-top-left:14px;-moz-border-radius-bottomleft: 14px;-webkit-border-radius-bottom-left:14px;}
+    .gright { float:right; width:220px; text-align:left; padding-right:20px;}
+    .gright div { border-left:solid 2px #999; padding:4px 10px; margin:0px;}
+    .gright div.curr { border:solid 2px #999; border-left:none; background-color:#ffffff; }
+    </style>
+</head>
+<body>
+    <div class="head">
+    <div class="main"><!--#include file="~/head.html"--></div>
+    </div>
+    <div class="line"></div>
+    <div class="main body">
+    <div style="padding:10px;"></div>
+    <div id="gleft" class="gleft">
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    <h1>asdf</h1>
+    </div>
+    <div id="gright" class="gright">
+    <div></div>
+    <div><h1>asdf</h1></div>
+    <div class="curr"><h1>asdf</h1></div>
+    <div><h1>asdf</h1></div>
+    <div><h1>asdf</h1></div>
+    <div id="rbotd"></div>
+    </div>
+    <div class="clear"></div>
+    <br /><br />
+    </div>
+    <div class="line2"></div>
+    <div class="bottom">
+    <div class="main"><!--#include file="~/bottom.html"--></div>
+    </div>
+    <script type="text/javascript">
+    function resetHeight(){
+        var h1 = el("gleft").offsetHeight;
+        var h2 = el("gright").offsetHeight;
+        if(h1<h2){
+            el("gleft").style.height = h2-24+"px";
+        }else{
+            el("rbotd").style.paddingTop = h1-h2+4+"px";
+        }
+    }
+    resetHeight();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>cnOpenBlog</title>
+    <meta http-equiv="content-type" content="text/html; charset=gb2312" />
+    <link rel="shortcut icon" href="favicon.gif" />
+    <link type="text/css" rel="stylesheet" href="/css/master2.css" />
+    <link type="text/css" rel="stylesheet" href="/css/user.css" />
+    <script type="text/javascript" src="/js/public.js"></script>
+    <script type="text/javascript" src="/js/master2.js"></script>
+    <asp:ContentPlaceHolder id="holderHead" runat="server" EnableViewState="false"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="header">
+    <a href="http://www.cnopenblog.com/">
+    <span style="font-size:22px; font-family:Nina; color:#cccccc;">cn</span>
+    <span style="font-size:38px; font-family:Nina; color:#F3A217;">open</span>
+    <span style="font-size:50px; font-family:Georgia; color:#ffffff;">Blog</span>
+    </a>
+    <div class="topright">
+    <table cellpadding="4" cellspacing="0">
+    <tr><td style="border-bottom:solid 1px #A7D1EE; text-align:right; vertical-align:bottom;"><a href="/<%=username+DLL.Settings.Ext %>" style="font-weight:bold;"><%=fullname %></a> <a href="/baseinfo.aspx" style="font-style:italic;">(<%=email %>)</a></td>
+    <td rowspan="2" style="padding-left:4px;"><a href="/<%=username+DLL.Settings.Ext %>"><img id="head_img" class="sphoto" alt="<%=username %>" src="/upload/photo/<%=username %>-s.jpg" onerror="this.src='/upload/photo/nophoto-s.jpg';" /></a></td></tr>
+    <tr><td style="text-align:right; vertical-align:top;"><a href="/<%=username+DLL.Settings.Ext %>">我的主页</a><b>|</b><a href="/baseinfo.aspx">管理</a><b>|</b><a href="/login.aspx?logout=1">注销</a></td></tr></table>
+    </div>
+    </div>
+    <div id="tabdiv" class="tab">
+    <a href="/" title="cnOpenBlog首页"><i></i><b>首 页</b><u></u></a>
+    <a href="/100.htm" title="查看最新文章"><i></i><b>最新文章</b><u></u></a>
+    <a href="/group/" title="博友群组"><i></i><b>群 组</b><u></u></a>
+    <a href="/shortblog/" title="一句话博客"><i></i><b>迷你博客</b><u></u></a>
+    <a href="/<%=username+DLL.Settings.Ext %>" title="我的主页"><i></i><b>我的主页</b><u></u></a>
+    <a href="#" class="over" lang="en"><i></i><b>管理</b><u></u></a>
+    <div class="clear"></div>
+    </div>
+    <div id="bodydiv" class="body">
+    <asp:ContentPlaceHolder id="holderBody" runat="server" EnableViewState="false"></asp:ContentPlaceHolder>
+    </div>
+    <div id="footerdiv" class="footer" style="visibility:hidden;">
+    <p style="text-align:right; margin:0px; padding:4px 40px;"><a href="/about.html">关于cnOpenBlog</a> &nbsp; <a href="/contact.html">联系我们</a> &nbsp; &copy;2009 <a href="/">cnOpenBlog.com</a> &nbsp;版权所有</p><script type="text/javascript">document.write(decodeURI('%3Cscript%20type=%22text/javascript%22%20src=%22/js/all.js%22%3E%3C/script%3E'));</script>
+    </div>
+    </form>
+</body>
+</html>

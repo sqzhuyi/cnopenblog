@@ -1,0 +1,23 @@
+﻿.left { float:left; width:580px; }
+.right { float:right; width:280px; }
+.bhead { margin:10px 0px; padding:6px 14px; border-top:solid 2px #cccccc; border-bottom:solid 1px #cccccc; }
+.bhead b { display:block; float:left; color:#555555; }
+.bhead b span { color:#ff0000; }
+.tag_box { padding:0px 12px; line-height:26px;}
+.tag_box a { padding:1px 4px; }
+.tag_box a:hover { background-color:#487DA5; color:#ffffff; }
+.loginhead { border-top:solid 2px #acd5f8; background-color:#D3E7F8; padding:6px 16px; font-weight:bold;}
+.loginbody { background-color:#E4F2FD; padding:16px 20px;}
+.loginphoto { width:80px; border:solid 1px #ccc; padding:1px; }
+.loginline { margin-top:16px;padding-top:12px; line-height:200%; border-top:solid 1px #ffffff; }
+a.publish { background:url(/images/layout_add.gif) no-repeat; padding-left:18px; padding-bottom:2px; }
+.chkRe { background:url(/images/icon_check.gif) no-repeat; padding:0px 0px 4px 22px; }
+.nochk { background-image:url(/images/icon_check_off.gif);}
+.ileft { float:left; width:54px; }
+.ileft img { border:solid 1px #ccc; padding:1px; width:50px; }
+.iright { float:right; width: 500px; }
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.bold { font-size:13px; }
+a.feed { background:url(/images/feed.png) no-repeat; padding-left:20px; padding-top:2px; }

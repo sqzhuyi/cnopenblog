@@ -1,0 +1,14 @@
+F:\website\SearchEngine\obj\Debug\ResolveAssemblyReference.cache
+F:\website\SearchEngine\bin\Debug\SearchEngine.dll
+F:\website\SearchEngine\bin\Debug\SearchEngine.pdb
+F:\website\SearchEngine\bin\Debug\SearchEngine.Analysis.dll
+F:\website\SearchEngine\bin\Debug\SearchEngine.Analysis.pdb
+F:\website\SearchEngine\obj\Debug\SearchEngine.dll
+F:\website\SearchEngine\obj\Debug\SearchEngine.pdb
+F:\website\cnopenblog\SearchEngine\bin\Debug\SearchEngine.dll
+F:\website\cnopenblog\SearchEngine\bin\Debug\SearchEngine.pdb
+F:\website\cnopenblog\SearchEngine\bin\Debug\SearchEngine.Analysis.dll
+F:\website\cnopenblog\SearchEngine\bin\Debug\SearchEngine.Analysis.pdb
+F:\website\cnopenblog\SearchEngine\obj\Debug\ResolveAssemblyReference.cache
+F:\website\cnopenblog\SearchEngine\obj\Debug\SearchEngine.dll
+F:\website\cnopenblog\SearchEngine\obj\Debug\SearchEngine.pdb

@@ -1,0 +1,12 @@
+﻿.bloglist { background-color:#ffffff;}
+.bloglist .title { padding:4px 10px; font-size:14px; background-color:#dddddd; -moz-border-radius: 3px; }
+*html .bloglist .title { border-bottom:solid 1px #eeeeee; border-top:solid 1px #d2cfcf;}
+.bloglist .title a { font-size:13px; color:#333; font-family:Verdana; font-weight:bold; }
+.bloglist .title a:hover { color:#cc3333;}
+.bloglist .zhaiyao { font-size:13px; text-indent:2em; padding:10px; padding-bottom:0px; font-family:Verdana;}
+.bloglist .bot { text-align:right; padding-right:10px; margin-bottom:10px; border-bottom:dashed 1px #cccccc;}
+
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.pagelist b { text-decoration:underline; }

@@ -1,0 +1,18 @@
+BODY {margin: 0px; padding:0px;}
+* {FONT-SIZE: 12px;}
+IMG {BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px;}
+TD.icon {VERTICAL-ALIGN: middle; WIDTH: 24px; HEIGHT: 24px; TEXT-ALIGN: center;}
+TD.sp {VERTICAL-ALIGN: middle; WIDTH: 8px; HEIGHT: 24px; TEXT-ALIGN: center;}
+TD.xz {VERTICAL-ALIGN: middle; WIDTH: 47px; HEIGHT: 24px; TEXT-ALIGN: center;}
+TD.bq {VERTICAL-ALIGN: middle; WIDTH: 49px; HEIGHT: 24px; TEXT-ALIGN: center;}
+a.n {DISPLAY: block; padding:2px 4px; COLOR: #000000;TEXT-DECORATION: none;}
+a.n:hover {BACKGROUND: #e5e5e5;}
+.tabbox {border: 1px solid rgb(197, 197, 197); background-image:url(bg.gif);padding:2px 4px;}
+.ico {	VERTICAL-ALIGN: middle; WIDTH: 24px; HEIGHT: 24px; TEXT-ALIGN: center;}
+.ico2 {	WIDTH: 27px;}
+.ico3 {	WIDTH: 25px;}
+.ico img {border:medium none;}
+#fontface_id {border: 1px solid #999; padding: 2px; background: #ffffff; z-index: 99; left: 2px; width: 110px; position: absolute; top: 35px;}
+#fontsize_id {border: 1px solid #999; padding: 2px; background: #ffffff; z-index:100; left: 26px; width: 115px; position: absolute; top: 35px;}
+#dvFace_id {border: 1px solid #999; padding: 2px; background: #c3d6eb; z-index:100; left: 106px; width: 406px; position: absolute; top: 15px;}
+#dvFace_id td { background-color:#ffffff; padding:1px; }

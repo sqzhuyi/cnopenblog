@@ -1,0 +1,21 @@
+C:\Documents and Settings\a\My Documents\Visual Studio 2008\Projects\OpenBlog\DLL\bin\Debug\DLL.dll
+C:\Documents and Settings\a\My Documents\Visual Studio 2008\Projects\OpenBlog\DLL\bin\Debug\DLL.pdb
+C:\Documents and Settings\a\My Documents\Visual Studio 2008\Projects\OpenBlog\DLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\a\My Documents\Visual Studio 2008\Projects\OpenBlog\DLL\obj\Debug\DLL.dll
+C:\Documents and Settings\a\My Documents\Visual Studio 2008\Projects\OpenBlog\DLL\obj\Debug\DLL.pdb
+F:\website\DLL\bin\Debug\DLL.dll
+F:\website\DLL\bin\Debug\DLL.pdb
+F:\website\DLL\obj\Debug\ResolveAssemblyReference.cache
+F:\website\DLL\obj\Debug\DLL.dll
+F:\website\DLL\obj\Debug\DLL.pdb
+E:\project\cnopenblog\DLL\bin\Debug\DLL.dll
+E:\project\cnopenblog\DLL\bin\Debug\DLL.pdb
+E:\project\cnopenblog\DLL\bin\Debug\SearchEngine.dll
+E:\project\cnopenblog\DLL\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\project\cnopenblog\DLL\bin\Debug\Lucene.Net.dll
+E:\project\cnopenblog\DLL\bin\Debug\SearchEngine.Analysis.dll
+E:\project\cnopenblog\DLL\bin\Debug\SearchEngine.pdb
+E:\project\cnopenblog\DLL\bin\Debug\SearchEngine.Analysis.pdb
+E:\project\cnopenblog\DLL\obj\Debug\ResolveAssemblyReference.cache
+E:\project\cnopenblog\DLL\obj\Debug\DLL.dll
+E:\project\cnopenblog\DLL\obj\Debug\DLL.pdb

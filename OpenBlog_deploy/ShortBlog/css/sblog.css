@@ -1,0 +1,34 @@
+﻿.bodymiddle { padding:0px; width:956px;}
+.left { float:left; width:620px; padding:10px 20px; }
+.right { float:right; width:240px; padding:20px; background-color:#f0f0f0; }
+.title { font-size:28px; font-family:华文新魏; color:#267BB5; margin-top:10px; }
+.item { padding:8px 5px; width:210px; border-bottom:dashed 1px #999999; }
+.item .col1 { float:left; width:50px; }
+.item .col1 img { border:none;}
+.item .col2 { float:right; width:156px; overflow:hidden; }
+.item .rcol2 { float:right; width:506px; }
+.item p { padding:1px 0px; font-size:14px; }
+.item2 { border-bottom:dashed 1px #ccc; padding:4px 0px;}
+#r_div { background-color:#eeeeee; margin-top:4px; padding:6px; }
+a.more { float:right; margin-right:20px; margin-top:-20px; }
+.pagelist { text-align:center; margin:20px 0px; }
+.pagelist a,.pagelist b { padding:1px 5px; }
+.pagelist a:hover { color:#ffffff; background-color:#0066cc; }
+.pagelist b { text-decoration:underline; }
+a.edit { background:url(/images/edit.gif) no-repeat 0px 0px; padding-left:18px; padding-top:1px; }
+a.addf { background:url(/images/addf.gif) no-repeat 0px 0px; padding-left:18px; padding-top:1px;}
+.rightsubbox { padding:10px; background:url(/images/bg/white-top.gif) no-repeat left top #ffffff; }
+.rightsubbox_bot { margin-bottom:6px; padding-top:6px; background-image:url(/images/bg/white-bottom.gif);}
+#txtQuickSearch { width:140px; border:solid 1px #999999; color:#555555; padding:3px 3px 3px 19px; *padding:4px 3px 2px 19px; background:url(/images/zoom.gif) no-repeat 3px 4px #ffffff; -moz-border-radius: 3px;-webkit-border-radius:3px; }
+.imgGo { margin-bottom:-6px; *margin-bottom:-4px; cursor:pointer; }
+
+.sbconbox { margin:20px 0px 20px 10px; border:solid 1px #ccc; padding:20px;}
+.replybox { margin:10px 0px 10px 10px; background-color:#EDF2F6; padding:20px; }
+.left .item { width:580px; margin:0px 20px; }
+.left .item .col2 { width:524px; }
+.left .big { background-color:#f0f0f0; border-bottom:none; margin:0px 0px 10px 6px; padding:20px 17px; -moz-border-radius: 5px;-webkit-border-radius:5px; }
+.left .big p { font-size:18px; }
+.arrowtop { background:url(/images/arr2.gif) no-repeat 50px 0px; padding-top:11px; }
+#sp_note2 { float:left; margin-left:20px; color:green; }
+.sendbox { margin-left:6px; margin-bottom:10px; padding:10px; background-color:#EDF2F6; -moz-border-radius: 5px;-webkit-border-radius:5px;}
+#sp_note { float:left; margin-left:20px; color:#ff0000; }

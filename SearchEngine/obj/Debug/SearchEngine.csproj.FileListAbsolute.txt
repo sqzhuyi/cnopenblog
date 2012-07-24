@@ -1,0 +1,7 @@
+E:\project\cnopenblog\SearchEngine\bin\Debug\SearchEngine.dll
+E:\project\cnopenblog\SearchEngine\bin\Debug\SearchEngine.pdb
+E:\project\cnopenblog\SearchEngine\bin\Debug\SearchEngine.Analysis.dll
+E:\project\cnopenblog\SearchEngine\bin\Debug\SearchEngine.Analysis.pdb
+E:\project\cnopenblog\SearchEngine\obj\Debug\ResolveAssemblyReference.cache
+E:\project\cnopenblog\SearchEngine\obj\Debug\SearchEngine.dll
+E:\project\cnopenblog\SearchEngine\obj\Debug\SearchEngine.pdb

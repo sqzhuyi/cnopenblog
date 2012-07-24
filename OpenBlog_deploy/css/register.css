@@ -1,0 +1,22 @@
+﻿.put { width:160px; }
+th { font-size:13px; width:80px; font-weight:normal; text-align:right; vertical-align:top; color:#444444; }
+.ersp { background:url(/images/delete.gif) no-repeat 6px 0px; padding-left:26px; color:#ff0000; }
+.oksp { background:url(/images/accept.gif) no-repeat 6px 0px; padding-left:26px; }
+.capt_box { width:210px; border:solid 1px #999; background-color:#ffffff; -moz-border-radius: 3px;-webkit-border-radius:3px;}
+#txtCaptcha { padding:4px; font-size:16px; font-weight:bold; border:solid 1px #ffffff; width:80px; }
+#capt_n { float:left; position:relative; left:240px; top:-30px;}
+.left { float:left; width:420px; }
+.right { float:right; width:460px; background-color:#EDF2F6; -moz-border-radius: 8px;-webkit-border-radius:8px;}
+.line { border-top:solid 1px #c9e8fb; margin:16px 40px; }
+.title { font-size:28px; font-family:华文新魏; color:#267BB5; margin-top:0px; }
+.lrsp { float:right; display:block; width:60px; border-left:solid 1px #ccc; padding:4px 20px; *margin-top:-30px; }
+.lrsp,x:-moz-any-link, x:default { margin-top:-30px;}
+.lrsp a { font-size:14px; font-weight:bold; }
+.ltsp { font-size:24px; font-weight:bold; font-family:华文行楷; }
+a.btnb { float:left; display:block; width:155px; background:url(/images/green_button.gif) no-repeat; padding:9px 0px; text-align:center; font-size:14px; font-weight:bold; color:#ffffff; text-decoration:none;}
+a.btnb:hover { text-decoration:underline;}
+.qp { font-size:13px; font-weight:bold; padding-left:6px; color:#666666; }
+.qp span { color:#f36f17; padding-right:10px;}
+.whobox a { float:left; margin:6px; }
+.whobox img { border:solid 1px #f0f0f0; }
+.qp2 { background:url(/images/up.gif) no-repeat 6px 0px; padding:8px 40px; }
